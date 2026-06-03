@@ -426,6 +426,10 @@ export default function GetStarted() {
                             label: "Accounts Payable Management",
                           },
                           {
+                            value: "transactionReceiptMatching",
+                            label: "Match Transactions to Invoices/Receipts",
+                          },
+                          {
                             value: "payroll",
                             label: "Payroll Support",
                           },
