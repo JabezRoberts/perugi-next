@@ -229,40 +229,64 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Mail, Phone, MapPin, Globe, Send, Check } from 'lucide-react'
 import { siteConfig } from '@/lib/data'
 import AnimatedSection from '@/components/AnimatedSection'
 
-type ContactFormData = {
+interface GetStartedFormData {
   name: string
+  businessName: string
   email: string
   phone: string
-  subject: string
-  message: string
+  services: string[]
+  transactions: string
+  bankAccounts: string
+  employees: string
+  software: string
+  booksStatus: string
+  payrollNeeded: string
+  businessChallenges: string
 }
 
-export default function ContactClient() {
+export default function GetStarted() {
   const [submitted, setSubmitted] = useState(false)
-  const [formData, setFormData] = useState<ContactFormData>({
+  const [formData, setFormData] = useState<GetStartedFormData>({
     name: '',
+    businessName: '',
     email: '',
     phone: '',
-    subject: '',
-    message: '',
+    services: [],
+    transactions: '',
+    bankAccounts: '',
+    employees: '',
+    software: '',
+    booksStatus: '',
+    payrollNeeded: '',
+    businessChallenges: '',
   })
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      services: checked
+        ? [...prev.services, value]
+        : prev.services.filter((service) => service !== value),
+    }));
+  };
 
   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true) }
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
 
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+  setFormData((prev) => ({
+    ...prev,
+    [name]: value,
+  }));
+};
 
   return (
     <>
@@ -270,18 +294,18 @@ export default function ContactClient() {
       <section className="relative min-h-[50vh] w-full flex items-center bg-background pt-28 pb-12">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="max-w-3xl">
-            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">Contact Us</span>
+            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">Get Started</span>
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-[0.95]">
-              Let&apos;s talk about your <span className="text-emerald-500">business</span>.
+              How can we help your <span className="text-emerald-500">business</span>?
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">
-              Whether you need bookkeeping support, financial organization, or operational visibility, we&apos;re here to help.
+              Whether you need bookkeeping support, financial clarity, or consistent financial reporting, we&apos;re here to help.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Contact Form */}
+      {/* Get Started Form */}
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-12">
@@ -336,192 +360,10 @@ export default function ContactClient() {
                     <p className="text-muted-foreground max-w-md">We&apos;ve received your message and will get back to you within 24 hours.</p>
                   </div>
                 ) : (
-                  // <form onSubmit={handleSubmit} className="space-y-5">
-                  //   <div className="grid sm:grid-cols-2 gap-5">
-                      
-                  //     <div>
-                  //       <label htmlFor="name" className="block text-sm font-medium mb-2">Name <span className="text-red-400">*</span></label>
-                  //       <input 
-                  //         type="text" 
-                  //         id="name" 
-                  //         name="name" 
-                  //         required 
-                  //         value={formData.name} 
-                  //         onChange={handleChange}
-                  //         aria-label="Full Name"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="John Brown" 
-                  //       />
-                  //     </div>
-
-                  //     <div>
-                  //       <label htmlFor="businessName" className="block text-sm font-medium mb-2">Business Name</label>
-                  //       <input 
-                  //         type="text" 
-                  //         id="businessName" 
-                  //         name="businessName" 
-                  //         value={formData.businessName} 
-                  //         onChange={handleChange}
-                  //         aria-label="Business Name"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="ABC Company Limited" 
-                  //       />
-                  //     </div>
-                  //   </div>
-
-                  //   <div className="grid sm:grid-cols-2 gap-5">
-                      
-                  //     <div>
-                  //       <label htmlFor="email" className="block text-sm font-medium mb-2">Email <span className="text-red-400">*</span></label>
-                  //       <input
-                  //         type="email" 
-                  //         id="email" 
-                  //         name="email" 
-                  //         required 
-                  //         value={formData.email} 
-                  //         onChange={handleChange}
-                  //         aria-label="Email Address"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="mail@company.com" />
-                  //     </div>
-
-                  //     <div>
-                  //       <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
-                  //       <input 
-                  //         type="tel" 
-                  //         id="phone" 
-                  //         name="phone" 
-                  //         value={formData.phone} 
-                  //         onChange={handleChange}
-                  //         aria-label="Phone Number"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="+1 (555) 000-0000" />
-                  //     </div>
-                  //   </div>
-
-                  //   <div className="grid sm:grid-cols-3 gap-5">
-                  //     <div className="sm:col-span-3">
-                  //     <label
-                  //       className="block text-sm font-medium mb-3"
-                  //       id="services-label"
-                  //     >
-                  //       Services Needed
-                  //     </label>
-
-                  //     <div
-                  //       role="group"
-                  //       aria-labelledby="services-label"
-                  //       className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"
-                  //     >
-                  //       {[
-                  //         {
-                  //           value: 'bookkeeping',
-                  //           label: 'Monthly Bookkeeping',
-                  //         },
-                  //         {
-                  //           value: 'accountsReceivable',
-                  //           label: 'Accounts Receivable',
-                  //         },
-                  //         {
-                  //           value: 'accountsPayable',
-                  //           label: 'Accounts Payable',
-                  //         },
-                  //         {
-                  //           value: 'payroll',
-                  //           label: 'Payroll Support',
-                  //         },
-                  //         {
-                  //           value: 'reporting',
-                  //           label: 'Financial Reporting',
-                  //         },
-                  //         {
-                  //           value: 'cleanup',
-                  //           label: 'Bookkeeping Cleanup',
-                  //         },
-                  //         {
-                  //           value: 'consultation',
-                  //           label: 'Monthly Consultation',
-                  //         },
-                  //         {
-                  //           value: 'dashboards',
-                  //           label: 'KPI Dashboard',
-                  //         },
-                  //       ].map(service => (
-                  //         <label
-                  //           key={service.value}
-                  //           className="flex items-center gap-3 p-3 rounded-xl border border-border bg-background cursor-pointer hover:border-emerald-500/40 transition-colors"
-                  //         >
-                  //           <input
-                  //             type="checkbox"
-                  //             value={service.value}
-                  //             checked={formData.services.includes(service.value)}
-                  //             onChange={handleCheckboxChange}
-                  //             aria-label={service.label}
-                  //             className="h-4 w-4"
-                  //           />
-
-                  //           <span>{service.label}</span>
-                  //         </label>
-                  //       ))}
-                  //     </div>
-                  //   </div>
-
-                  //     <div>
-                  //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Average Monthly Transactions</label>
-                  //       <select
-                  //         id="transactions"
-                  //         name="transactions"
-                  //         aria-label="Average Monthly Transactions"
-                  //         value={formData.transactions}
-                  //         onChange={handleChange}
-                  //       >
-                  //         <option value="">Select range</option>
-                  //         <option value="0-50">0 to 50</option>
-                  //         <option value="51-100">51 to 100</option>
-                  //         <option value="101-199">101 to 199</option>
-                  //         <option value="200+">200+</option>
-                  //       </select>
-                  //     </div>
-                      
-                  //     <div>
-                  //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Number of Bank Accounts</label>
-                  //       <select
-                  //         id="bankAccounts"
-                  //         name="bankAccounts"
-                  //         aria-label="Number of Bank Accounts"
-                  //         value={formData.bankAccounts}
-                  //         onChange={handleChange}
-                  //       >
-                  //         <option value="">Select range</option>
-                  //         <option value="0-1k">0 to 1</option>
-                  //         <option value="1 to 3">1 to 3</option>
-                  //         <option value="4+">4+</option>
-                  //       </select>
-                  //     </div>
-
-                  //   </div>
-                  //   <div>
-                  //     <label htmlFor="message" className="block text-sm font-medium mb-2">Message <span className="text-red-400">*</span></label>
-                  //     <textarea 
-                  //       id="message" 
-                  //       name="message" 
-                  //       required 
-                  //       rows={5} 
-                  //       value={formData.message} 
-                  //       onChange={handleChange}
-                  //       className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
-                  //       placeholder="Tell us about your business, bookkeeping needs, current systems, and any challenges you're facing..." 
-                  //     />
-                  //   </div>
-                  //   <button type="submit"
-                  //     className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
-                  //     Send Message <Send className="w-4 h-4" />
-                  //   </button>
-                  // </form>
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    
-                    {/* Name + Email */}
+                    {/* Contact Information */}
                     <div className="grid sm:grid-cols-2 gap-5">
+
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium mb-2">
                           Name <span className="text-red-400">*</span>
@@ -530,15 +372,36 @@ export default function ContactClient() {
                           type="text"
                           id="name"
                           name="name"
-                          required
                           aria-label="Full Name"
                           autoComplete="name"
+                          required
                           value={formData.name}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
                           placeholder="John Brown"
                         />
                       </div>
+
+                      <div>
+                        <label htmlFor="businessName" className="block text-sm font-medium mb-2">
+                          Business Name
+                        </label>
+                        <input
+                          type="text"
+                          id="businessName"
+                          name="businessName"
+                          aria-label="Business Name"
+                          autoComplete="organization"
+                          value={formData.businessName}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                          placeholder="ABC Company Limited"
+                        />
+                      </div>
+
+                    </div>
+
+                    <div className="grid sm:grid-cols-2 gap-5">
 
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium mb-2">
@@ -548,20 +411,15 @@ export default function ContactClient() {
                           type="email"
                           id="email"
                           name="email"
-                          required
                           aria-label="Email Address"
                           autoComplete="email"
+                          required
                           value={formData.email}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
                           placeholder="mail@company.com"
                         />
                       </div>
-
-                    </div>
-
-                    {/* Phone + Subject */}
-                    <div className="grid sm:grid-cols-2 gap-5">
 
                       <div>
                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
@@ -575,55 +433,230 @@ export default function ContactClient() {
                           autoComplete="tel"
                           value={formData.phone}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
                           placeholder="+1 (555) 000-0000"
                         />
                       </div>
 
+                    </div>
+
+                    {/* Services Needed */}
+                    <div>
+                      <label className="block text-sm font-medium mb-3">
+                        Services Needed
+                      </label>
+
+                      <div
+                        className="grid sm:grid-cols-2 gap-3"
+                        role="group"
+                        aria-label="Services Needed"
+                      >
+                        {[
+                          {
+                            value: "bookkeeping",
+                            label: "Monthly Bookkeeping",
+                          },
+                          {
+                            value: "accountsReceivable",
+                            label: "Accounts Receivable Management",
+                          },
+                          {
+                            value: "accountsPayable",
+                            label: "Accounts Payable Management",
+                          },
+                          {
+                            value: "payroll",
+                            label: "Payroll Support",
+                          },
+                          {
+                            value: "financialReporting",
+                            label: "Financial Reporting",
+                          },
+                          {
+                            value: "cleanup",
+                            label: "Bookkeeping Cleanup / Catch-Up",
+                          },
+                          {
+                            value: "kpiDashboard",
+                            label: "Monthly KPI Dashboard",
+                          },
+                        ].map((service) => (
+                          <label
+                            key={service.value}
+                            className="flex items-center gap-3 p-3 rounded-xl border border-border bg-background cursor-pointer hover:border-emerald-500/50 transition-colors"
+                          >
+                            <input
+                              type="checkbox"
+                              name="services"
+                              value={service.value}
+                              checked={formData.services.includes(service.value)}
+                              onChange={handleCheckboxChange}
+                              aria-label={service.label}
+                              className="h-4 w-4"
+                            />
+                            <span>{service.label}</span>
+                          </label>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Qualification Questions */}
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
                       <div>
-                        <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                          Subject
+                        <label htmlFor="transactions" className="block text-sm font-medium mb-2">
+                          Average Monthly Transactions
                         </label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          aria-label="Message Subject"
-                          value={formData.subject}
+                        <select
+                          id="transactions"
+                          name="transactions"
+                          aria-label="Average Monthly Transactions"
+                          value={formData.transactions}
                           onChange={handleChange}
                           className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                          placeholder="How can we help?"
-                        />
+                        >
+                          <option value="">Select range</option>
+                          <option value="0-50">0 - 50</option>
+                          <option value="51-100">51 - 100</option>
+                          <option value="101-200">101 - 200</option>
+                          <option value="201-500">201 - 500</option>
+                          <option value="500+">500+</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="bankAccounts" className="block text-sm font-medium mb-2">
+                          Number of Bank Accounts
+                        </label>
+                        <select
+                          id="bankAccounts"
+                          name="bankAccounts"
+                          aria-label="Number of Bank Accounts"
+                          value={formData.bankAccounts}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                        >
+                          <option value="">Select range</option>
+                          <option value="1">1</option>
+                          <option value="2-3">2 - 3</option>
+                          <option value="4-5">4 - 5</option>
+                          <option value="6+">6+</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="employees" className="block text-sm font-medium mb-2">
+                          Number of Employees
+                        </label>
+                        <select
+                          id="employees"
+                          name="employees"
+                          aria-label="Number of Employees"
+                          value={formData.employees}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                        >
+                          <option value="">Select range</option>
+                          <option value="0">No Employees</option>
+                          <option value="1-5">1 - 5</option>
+                          <option value="6-15">6 - 15</option>
+                          <option value="16-50">16 - 50</option>
+                          <option value="50+">50+</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="software" className="block text-sm font-medium mb-2">
+                          Accounting Software
+                        </label>
+                        <select
+                          id="software"
+                          name="software"
+                          aria-label="Accounting Software"
+                          value={formData.software}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                        >
+                          <option value="">Select one</option>
+                          <option value="quickbooks">QuickBooks</option>
+                          <option value="xero">Xero</option>
+                          <option value="sage">Sage</option>
+                          <option value="excel">Excel Only</option>
+                          <option value="none">No Software</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="booksStatus" className="block text-sm font-medium mb-2">
+                          Are Your Financials Up to Date?
+                        </label>
+                        <select
+                          id="booksStatus"
+                          name="booksStatus"
+                          aria-label="Are Your Financials Up to Date?"
+                          value={formData.booksStatus}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                        >
+                          <option value="">Select one</option>
+                          <option value="current">Current</option>
+                          <option value="1-3">1 - 3 Months Behind</option>
+                          <option value="4-12">4 - 12 Months Behind</option>
+                          <option value="12+">More Than 12 Months Behind</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label htmlFor="payrollNeeded" className="block text-sm font-medium mb-2">
+                          Need Payroll Support?
+                        </label>
+                        <select
+                          id="payrollNeeded"
+                          name="payrollNeeded"
+                          aria-label="Need Payroll Support"
+                          value={formData.payrollNeeded}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+                        >
+                          <option value="">Select one</option>
+                          <option value="yes">Yes</option>
+                          <option value="no">No</option>
+                        </select>
                       </div>
 
                     </div>
 
-                    {/* Message */}
+                    {/* Business Challenges */}
                     <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message <span className="text-red-400">*</span>
+                      <label
+                        htmlFor="businessChallenges"
+                        className="block text-sm font-medium mb-2"
+                      >
+                        Tell Us About Your Business & Challenges
+                        <span className="text-red-400">*</span>
                       </label>
 
                       <textarea
-                        id="message"
-                        name="message"
+                        id="businessChallenges"
+                        name="businessChallenges"
+                        aria-label="Business Challenges"
                         required
-                        rows={6}
-                        aria-label="Message"
-                        value={formData.message}
+                        rows={5}
+                        value={formData.businessChallenges}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
-                        placeholder="Tell us what you need help with..."
+                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
+                        placeholder="Tell us about your business, bookkeeping needs, current systems, and any challenges you're facing..."
                       />
                     </div>
 
-                    {/* Submit */}
                     <button
                       type="submit"
                       className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all"
                     >
-                      Send Message <Send className="w-4 h-4" />
+                      Send Message
+                      <Send className="w-4 h-4" />
                     </button>
+
                   </form>
                 )}
               </div>
