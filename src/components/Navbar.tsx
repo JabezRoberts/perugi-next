@@ -71,9 +71,9 @@ export default function Navbar() {
                 </AnimatePresence>
               </button>
 
-              <Link href="/contact"
+              <Link href="/get-started"
                 className="hidden lg:inline-flex items-center px-5 py-2.5 bg-emerald-500 text-white font-semibold text-sm rounded-full hover:scale-105 active:scale-95 transition-all duration-200">
-                Book a Call
+                Get Started
               </Link>
 
               <button onClick={() => setMobileOpen(!mobileOpen)}
@@ -98,8 +98,8 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-6">
-                <Link href="/contact" className="inline-flex items-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-full">
-                  Book a Call
+                <Link href="/get-started" className="inline-flex items-center px-6 py-3 bg-emerald-500 text-white font-semibold rounded-full">
+                  Get Started
                 </Link>
               </motion.div>
             </div>

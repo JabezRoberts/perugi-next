@@ -1,10 +1,11 @@
-import GetStarted from './get-started'
+// import GetStarted from './get-started'
+import GetStarted from "./get-started"
 
 export const metadata = {
-  title: 'Contact | Perugi Partners',
+  title: 'Get Started | Perugi Partners',
   description: 'Let\'s talk about your business.',
 }
 
-export default function Contact() {
-  return <ContactClient />
+export default function GetStartedPage() {
+  return <GetStarted />
 }

@@ -291,7 +291,7 @@ export default function GetStarted() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[50vh] w-full flex items-center bg-background pt-28 pb-12">
+      <section className="relative min-h-[50vh] w-full flex items-center bg-background pt-28 pb-6">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="max-w-3xl">
             <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">Get Started</span>
@@ -308,46 +308,7 @@ export default function GetStarted() {
       {/* Get Started Form */}
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-12">
-            {/* Info */}
-            <AnimatedSection animation="fade-left" className="lg:col-span-2">
-              <h2 className="text-2xl lg:text-3xl font-bold mb-6">
-                Schedule a <span className="text-emerald-500">consultation</span>.
-              </h2>
-              <div className="space-y-5 mb-10">
-                {[
-                  { icon: Mail, label: 'Email', value: siteConfig.email, href: `mailto:${siteConfig.email}` },
-                  { icon: Phone, label: 'Phone', value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
-                  { icon: MapPin, label: 'Location', value: siteConfig.address, href: undefined },
-                ].map((item) => (
-                  <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
-                      <item.icon className="w-5 h-5 text-emerald-500" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
-                      {item.href ? (
-                        <a href={item.href} className="font-medium hover:text-emerald-500 transition-colors">{item.value}</a>
-                      ) : (
-                        <span className="font-medium">{item.value}</span>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground mb-3">Follow us</p>
-                <div className="flex items-center gap-3">
-                  <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="Instagram">
-                    <Globe className="w-4 h-4" />
-                  </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="LinkedIn">
-                    <Globe className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </AnimatedSection>
-
+          <div className="">
             {/* Form */}
             <AnimatedSection animation="fade-right" className="lg:col-span-3">
               <div className="p-6 lg:p-8 rounded-3xl bg-card border border-border">
@@ -653,7 +614,7 @@ export default function GetStarted() {
                       type="submit"
                       className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all"
                     >
-                      Send Message
+                      Request Services
                       <Send className="w-4 h-4" />
                     </button>
 

@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'Perugi Partners',
   tagline: 'Financial Clarity for Modern Businesses',
-  email: 'hello@perugiparrtners.com',
-  phone: '+1 (876) 555-0147',
+  email: 'info@perugipartners.com',
+  phone: '+1 (876) 501-4318',
   instagram: '@perugipartners',
   linkedin: 'Perugi Partners',
   address: 'Kingston, Jamaica',
@@ -15,6 +15,7 @@ export const navLinks = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
+  { label: 'Get Started', href: '/get-started' },
 ]
 
 export const services = [
