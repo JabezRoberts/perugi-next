@@ -305,6 +305,77 @@ export default function GetStarted() {
         </div>
       </section>
 
+
+      {/* Process Section */}
+      <section className="w-full py-20 lg:py-28 bg-card/30">
+        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+
+          <AnimatedSection className="text-center mb-14">
+            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">
+              Our Process
+            </span>
+
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Getting started is <span className="text-emerald-500">simple</span>.
+            </h2>
+
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We keep onboarding straightforward so you can focus on running your business.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-5 gap-5">
+
+            {[
+              {
+                step: '01',
+                title: 'Submit Form',
+                text: 'Complete the questionnaire below so we can understand your business and bookkeeping needs.',
+              },
+              {
+                step: '02',
+                title: 'Consultation',
+                text: 'We schedule a conversation to discuss your operations, goals, and current financial processes.',
+              },
+              {
+                step: '03',
+                title: 'Provide Statements',
+                text: 'Send your three most recent bank statements for every account used in your business.',
+              },
+              {
+                step: '04',
+                title: 'Receive Proposal',
+                text: 'We review your requirements and provide a clear service proposal and pricing.',
+              },
+              {
+                step: '05',
+                title: 'We Get To Work',
+                text: 'After signing, you add us to QuickBooks and we begin delivering services.',
+              },
+            ].map((item, i) => (
+              <AnimatedSection
+                key={item.step}
+                delay={i * 0.1}
+                className="p-6 rounded-3xl bg-card border border-border"
+              >
+                <div className="text-emerald-500 font-bold text-sm mb-3">
+                  {item.step}
+                </div>
+
+                <h3 className="font-semibold text-lg mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground">
+                  {item.text}
+                </p>
+              </AnimatedSection>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
       {/* Get Started Form */}
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
@@ -618,7 +689,7 @@ export default function GetStarted() {
                       type="submit"
                       className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all"
                     >
-                      Request Services
+                      Request Consultation
                       <Send className="w-4 h-4" />
                     </button>
 
@@ -630,12 +701,139 @@ export default function GetStarted() {
         </div>
       </section>
 
+
+      {/* Benefits Section */}
+      <section className="w-full py-20 lg:py-28 bg-background">
+        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+
+          <AnimatedSection className="text-center mb-14">
+            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">
+              Benefits
+            </span>
+
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Why professional <span className="text-emerald-500">bookkeeping</span> matters.
+            </h2>
+
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Good bookkeeping is more than compliance. It gives you the information needed
+              to make better business decisions.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+
+            {[
+              {
+                title: 'Financial Clarity',
+                text: 'Know exactly where your business stands with accurate and current financial information.',
+              },
+              {
+                title: 'More Time',
+                text: 'Delegate a critical operational task to an experienced team and focus on growth.',
+              },
+              {
+                title: 'Better Spending Decisions',
+                text: 'Understand how much cash is available so you can avoid unnecessary overspending.',
+              },
+              {
+                title: 'Improved Cash Flow',
+                text: 'Stay ahead of potential cash shortages and maintain healthier business finances.',
+              },
+              {
+                title: 'Smoother Operations',
+                text: 'Keep payroll, customer payments, and vendor bills organized and under control.',
+              },
+            ].map((item, i) => (
+              <AnimatedSection
+                key={item.title}
+                delay={i * 0.08}
+                className="p-6 rounded-3xl bg-card border border-border"
+              >
+                <h3 className="font-semibold text-lg mb-3">
+                  {item.title}
+                </h3>
+
+                <p className="text-muted-foreground text-sm">
+                  {item.text}
+                </p>
+              </AnimatedSection>
+            ))}
+
+          </div>
+
+        </div>
+      </section>
+
+
+      {/* Testimonials */}
+      <section className="w-full py-20 lg:py-28 bg-card/30">
+        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+
+          <AnimatedSection className="text-center mb-14">
+            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">
+              Testimonials
+            </span>
+
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+              Trusted by growing businesses.
+            </h2>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-3 gap-6">
+
+            {[
+              {
+                quote:
+                  "Perugi Partners helped us get our books organized and gave us visibility into our finances for the first time.",
+                name: "Sarah M.",
+                company: "Construction Company",
+              },
+              {
+                quote:
+                  "Their reporting helped us understand where our money was going and improved our decision making.",
+                name: "David R.",
+                company: "Professional Services Firm",
+              },
+              {
+                quote:
+                  "Reliable, responsive, and easy to work with. They quickly became an important part of our operations.",
+                name: "Jennifer L.",
+                company: "Retail Business",
+              },
+            ].map((testimonial, i) => (
+              <AnimatedSection
+                key={i}
+                delay={i * 0.1}
+                className="p-8 rounded-3xl bg-card border border-border"
+              >
+                <p className="text-muted-foreground mb-6 leading-relaxed">
+                  &quot;{testimonial.quote}&quot;
+                </p>
+
+                <div>
+                  <div className="font-semibold">
+                    {testimonial.name}
+                  </div>
+
+                  <div className="text-sm text-muted-foreground">
+                    {testimonial.company}
+                  </div>
+                </div>
+              </AnimatedSection>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+
       {/* Discussion Points */}
       <section className="w-full py-20 lg:py-28 bg-card/30">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              What we&apos;ll <span className="text-emerald-500">discuss</span>.
+              What we&apos;ll <span className="text-emerald-500">discuss</span> during  your consultation.
             </h2>
           </AnimatedSection>
           <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
