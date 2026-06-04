@@ -15,7 +15,7 @@ export const navLinks = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contact', href: '/contact' },
-  { label: 'Get Started', href: '/get-started' },
+  // { label: 'Get Started', href: '/get-started' },
 ]
 
 export const services = [

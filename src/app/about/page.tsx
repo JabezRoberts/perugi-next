@@ -49,7 +49,7 @@ export default function About() {
             </AnimatedSection>
             <AnimatedSection animation="scale" delay={0.2}>
               <div className="w-full aspect-square max-w-md mx-auto rounded-full overflow-hidden">
-                <img src="/images/about-founder.jpg" alt="Founder" className="w-full h-full object-cover" />
+                <img src="/images/jabez-roberts.jpg" alt="Founder" className="w-full h-full object-cover" />
               </div>
             </AnimatedSection>
           </div>
