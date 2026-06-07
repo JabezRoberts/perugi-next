@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { benefits } from '@/app/constants/benefits'
+import { benefits, services } from '@/app/constants/index'
 import { ArrowRight, Check, TrendingUp, Users, FileText, Zap } from 'lucide-react'
-import { services, testimonials } from '@/lib/data'
+import { testimonials } from '@/lib/data'
 import AnimatedSection from '@/components/AnimatedSection'
 
 export default function Home() {
@@ -186,11 +186,12 @@ export default function Home() {
             <p className="text-lg text-muted-foreground mb-1 mt-6 font-bold">
               Your Business&apos;s financial health is more than your income. 
             </p>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-lg max-w-6xl mx-auto">
               From bookkeeping to financial reporting and ongoing support, we help business owners stay on top of their numbers with accurate records, clear insights, and reliable financial processes.
             </p>
           </AnimatedSection>
-          <div className="grid md:grid-cols-3 gap-6">
+
+          {/* <div className="grid md:grid-cols-3 gap-6">
             {services.slice(0, 3).map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 0.12} animation="scale">
                 <Link href={service.href} className="group block">
@@ -208,7 +209,49 @@ export default function Home() {
                 </Link>
               </AnimatedSection>
             ))}
+          </div> */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.slice(0, 3).map((service, i) => (
+              <AnimatedSection
+                key={service.title}
+                delay={i * 0.12}
+                animation="scale"
+              >
+                <div className="h-full rounded-3xl border border-border bg-card p-8">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                    <service.icon className="w-6 h-6 text-emerald-500" />
+                  </div>
+
+                  <h3 className="text-2xl font-bold mb-4">
+                    {service.title}
+                  </h3>
+
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+
+                  <ul className="space-y-3 text-sm text-muted-foreground">
+                    {service.features.map((feature) => (
+                      <li key={feature} className="flex gap-3">
+                        <Check className="w-4 h-4 text-emerald-500 mt-0.5 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </AnimatedSection>
+            ))}
           </div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/services"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 transition-all"
+          >
+            View All Services
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
