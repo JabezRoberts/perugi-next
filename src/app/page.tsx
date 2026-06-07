@@ -308,93 +308,100 @@ export default function Home() {
       {/* Founder Story */}
       <section className="w-full py-20 lg:py-28 bg-background relative overflow-hidden">
 
-        {/* Background Image Layer */}
-        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
 
-          {/* Oval container */}
-          <div className="relative w-[420px] h-[520px] lg:w-[520px] lg:h-[620px] rounded-full overflow-hidden opacity-[0.18] lg:opacity-[0.22]">
+        <div className="absolute w-[700px] h-[700px] rounded-full bg-emerald-500/10 blur-3xl opacity-40" />
 
-            <Image
-              src="/images/jabez-roberts-perugi-partners.png"
-              alt="Founder of Perugi Partners"
-              fill
-              className="object-cover object-top scale-105"
-              priority
-            />
+        <div className="relative w-[420px] h-[520px] lg:w-[520px] lg:h-[620px] rounded-[999px] overflow-hidden opacity-[0.18] lg:opacity-[0.22]">
 
-            {/* Soft fade so text always wins */}
-            <div className="absolute inset-0 bg-background/60" />
-          </div>
+          <Image
+            src="/images/jabez-roberts-perugi-partners.png"
+            alt="Founder of Perugi Partners"
+            fill
+            className="object-cover object-top scale-105"
+            priority
+          />
 
+          <div className="absolute inset-0 bg-background/70" />
         </div>
 
-        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto relative">
+      </div>
 
-          {/* Header */}
-          <AnimatedSection className="text-center mb-14">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
-              Accounting should not feel <span className="text-emerald-500">outdated</span>.
-            </h2>
+      <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto relative">
 
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Perugi was built from a simple realization that most business owners only discover their true financial position at tax season.
+        <AnimatedSection className="text-center mb-14">
+          <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-foreground">
+            &ldquo; I only knew my number <span className="text-emerald-500">At Tax Season</span> &rdquo;
+          </h2>
+
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            I built Perugi Partners because I was one of many business owners who only discovered their true financial position at tax season.
+          </p>
+        </AnimatedSection>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+
+          <AnimatedSection animation="fade-right" className="space-y-6">
+
+            <p className="leading-relaxed text-foreground">
+              I used to run a business where everything felt profitable until tax season revealed the truth.
+              </p>
+            <p className="leading-relaxed text-muted-foreground">
+              I did not really know what I was spending, where I was overspending, or how much I could actually save.
             </p>
+
+            <p className="leading-relaxed text-muted-foreground">
+              That experience changed how I think about accounting forever. It is not just about recording numbers.
+              It is about having <span className="text-emerald-600 dark:text-emerald-500">real-time financial clarity</span> that helps you make better decisions today, not months later.
+            </p>
+
+            <p className="leading-relaxed text-muted-foreground">
+              Now, as a double major in Accounting and Banking & Finance, I built Perugi to give business owners
+              the clarity I wish I had: structured bookkeeping, clear reporting, and financial systems that actually reflect reality.
+            </p>
+
+            <p className="font-medium text-muted-foreground">
+              <span className="text-emerald-600 dark:text-emerald-500">The goal is simple:</span> when you understand your numbers clearly, you make better decisions, avoid unnecessary costs, and grow with confidence.
+            </p>
+
           </AnimatedSection>
 
-          {/* Grid */}
-          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+          <AnimatedSection animation="fade-left" className="space-y-4">
 
-            {/* Founder Story */}
-            <AnimatedSection animation="fade-right" className="space-y-6">
+            {[
+              "Real-time financial clarity",
+              "Modern financial systems and reports",
+              "Education-first approach",
+              "Business owner understanding",
+              "Simple, usable reporting",
+            ].map((point) => (
+              <div
+                key={point}
+                className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+                <span className="font-medium text-foreground">{point}</span>
+              </div>
+            ))}
 
-              <p className="text-foreground leading-relaxed">
-                I used to run a business where everything felt profitable until tax season revealed the truth.
-                I did not really know what I was spending, where I was overspending, or how much I could actually save.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed">
-                That experience changed how I think about accounting forever. It is not just about recording numbers.
-                It is about having <span className="text-foreground font-medium">real-time financial clarity</span> that helps you make better decisions today, not months later.
-              </p>
-
-              <p className="text-muted-foreground leading-relaxed">
-                Now, as a double major in Accounting and Banking & Finance, I built Perugi to give business owners
-                the clarity I wish I had: structured bookkeeping, clear reporting, and financial systems that actually reflect reality.
-              </p>
-
-              <p className="text-foreground font-medium">
-                The goal is simple: when you understand your numbers clearly, you make better decisions, avoid unnecessary costs, and grow with confidence.
-              </p>
-
-            </AnimatedSection>
-
-            {/* Values */}
-            <AnimatedSection animation="fade-left" className="space-y-4">
-
-              {[
-                "Real-time financial clarity",
-                "Modern accounting systems",
-                "Education-first approach",
-                "Business owner understanding",
-                "Simple, usable reporting",
-              ].map((point) => (
-                <div
-                  key={point}
-                  className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border backdrop-blur-sm"
-                >
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
-                  <span className="font-medium">{point}</span>
-                </div>
-              ))}
-
-            </AnimatedSection>
-
-          </div>
+          </AnimatedSection>
         </div>
-      </section>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/about"
+            className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 transition-all"
+          >
+            More About Us
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
+    </section>
 
       {/* Mission */}
-      <section className="w-full py-20 lg:py-32 bg-card/30 relative overflow-hidden">
+      {/* <section className="w-full py-20 lg:py-32 bg-card/30 relative overflow-hidden">
   
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] rounded-full overflow-hidden opacity-15 pointer-events-none">
             
@@ -420,14 +427,14 @@ export default function Home() {
             </Link>
           </AnimatedSection>
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials */}
       <section className="w-full py-20 lg:py-28 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
-              Trusted by operators who value <span className="text-emerald-500">clarity</span>.
+              Trusted by Businesses who value <span className="text-emerald-500">Real-time Financial Clarity</span>.
             </h2>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -450,7 +457,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="w-full py-20 lg:py-28 bg-card/30">
+      {/* <section className="w-full py-20 lg:py-28 bg-card/30">
         <div className="w-full px-6 lg:px-12 max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
@@ -466,7 +473,7 @@ export default function Home() {
             </div>
           </AnimatedSection>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
