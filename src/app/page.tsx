@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { benefits, services } from '@/app/constants/index'
 import { ArrowRight, Check, TrendingUp, Users, FileText, Zap } from 'lucide-react'
 import { testimonials } from '@/lib/data'
@@ -22,7 +23,15 @@ export default function Home() {
 
             <AnimatedSection animation="scale" className="relative order-2 lg:order-1">
               <div className="relative w-[70vw] h-[70vw] lg:w-[50vh] lg:h-[50vh] mx-auto rounded-full overflow-hidden">
-                <img src="/images/hero-workspace.jpg" alt="Modern workspace" className="w-full h-full object-cover" />
+                
+                <Image
+                  src="/images/hero-workspace.jpg"
+                  alt="Modern workspace"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+
                 <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent" />
               </div>
               <div className="absolute -bottom-4 -right-4 lg:bottom-8 lg:right-0 bg-card border border-border rounded-2xl px-4 py-3 shadow-lg">
@@ -255,60 +264,150 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* Industries */}
-      <section className="w-full py-20 lg:py-28 bg-[#0B0F17]">
+      <section className="w-full py-20 lg:py-28 bg-card">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+
           <AnimatedSection className="text-center mb-14">
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-foreground">
               Built for <span className="text-emerald-500">ambitious</span> businesses.
             </h2>
           </AnimatedSection>
+
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { icon: Zap, label: 'Startups' },
-              { icon: Users, label: 'Agencies' },
-              { icon: FileText, label: 'Contractors' },
-              { icon: TrendingUp, label: 'E-commerce' },
-              { icon: Users, label: 'Creators' },
-              { icon: FileText, label: 'Consultants' },
-              { icon: Zap, label: 'Restaurants' },
-              { icon: Users, label: 'Service businesses' },
+              { icon: Zap, label: "Startups" },
+              { icon: Users, label: "Agencies" },
+              { icon: FileText, label: "Contractors" },
+              { icon: TrendingUp, label: "E-commerce" },
+              { icon: Users, label: "Creators" },
+              { icon: FileText, label: "Consultants" },
+              { icon: Zap, label: "Restaurants" },
+              { icon: Users, label: "Service businesses" },
             ].map((client, i) => (
               <AnimatedSection key={client.label} delay={i * 0.06}>
-                <div className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
+                <div className="
+                  flex flex-col items-center gap-3 p-6 rounded-2xl
+                  bg-background border border-border
+                  hover:bg-muted/40 transition-colors
+                ">
                   <client.icon className="w-6 h-6 text-emerald-500" />
-                  <span className="text-white font-medium">{client.label}</span>
+                  <span className="font-medium text-foreground">
+                    {client.label}
+                  </span>
                 </div>
               </AnimatedSection>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* Philosophy */}
-      <section className="w-full py-20 lg:py-28 bg-background">
-        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+      {/* Founder Story */}
+      <section className="w-full py-20 lg:py-28 bg-background relative overflow-hidden">
+
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+
+          {/* Oval container */}
+          <div className="relative w-[420px] h-[520px] lg:w-[520px] lg:h-[620px] rounded-full overflow-hidden opacity-[0.18] lg:opacity-[0.22]">
+
+            <Image
+              src="/images/jabez-roberts-perugi-partners.png"
+              alt="Founder of Perugi Partners"
+              fill
+              className="object-cover object-top scale-105"
+              priority
+            />
+
+            {/* Soft fade so text always wins */}
+            <div className="absolute inset-0 bg-background/60" />
+          </div>
+
+        </div>
+
+        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto relative">
+
+          {/* Header */}
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
               Accounting should not feel <span className="text-emerald-500">outdated</span>.
             </h2>
+
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Perugi was built from a simple realization that most business owners only discover their true financial position at tax season.
+            </p>
           </AnimatedSection>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-            {['Modern communication', 'Technology-first', 'Educational approach', 'Relationship-focused', 'Practical business support'].map((point, i) => (
-              <AnimatedSection key={point} delay={i * 0.08} className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
-                <span className="font-medium">{point}</span>
-              </AnimatedSection>
-            ))}
+
+          {/* Grid */}
+          <div className="grid lg:grid-cols-2 gap-12 items-start max-w-5xl mx-auto">
+
+            {/* Founder Story */}
+            <AnimatedSection animation="fade-right" className="space-y-6">
+
+              <p className="text-foreground leading-relaxed">
+                I used to run a business where everything felt profitable until tax season revealed the truth.
+                I did not really know what I was spending, where I was overspending, or how much I could actually save.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed">
+                That experience changed how I think about accounting forever. It is not just about recording numbers.
+                It is about having <span className="text-foreground font-medium">real-time financial clarity</span> that helps you make better decisions today, not months later.
+              </p>
+
+              <p className="text-muted-foreground leading-relaxed">
+                Now, as a double major in Accounting and Banking & Finance, I built Perugi to give business owners
+                the clarity I wish I had: structured bookkeeping, clear reporting, and financial systems that actually reflect reality.
+              </p>
+
+              <p className="text-foreground font-medium">
+                The goal is simple: when you understand your numbers clearly, you make better decisions, avoid unnecessary costs, and grow with confidence.
+              </p>
+
+            </AnimatedSection>
+
+            {/* Values */}
+            <AnimatedSection animation="fade-left" className="space-y-4">
+
+              {[
+                "Real-time financial clarity",
+                "Modern accounting systems",
+                "Education-first approach",
+                "Business owner understanding",
+                "Simple, usable reporting",
+              ].map((point) => (
+                <div
+                  key={point}
+                  className="flex items-center gap-3 p-4 rounded-2xl bg-card border border-border backdrop-blur-sm"
+                >
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0" />
+                  <span className="font-medium">{point}</span>
+                </div>
+              ))}
+
+            </AnimatedSection>
+
           </div>
         </div>
       </section>
 
       {/* Mission */}
       <section className="w-full py-20 lg:py-32 bg-card/30 relative overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] rounded-full overflow-hidden opacity-15 pointer-events-none">
-          <img src="/images/service-operations.jpg" alt="" className="w-full h-full object-cover" />
-        </div>
+  
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vh] h-[80vh] rounded-full overflow-hidden opacity-15 pointer-events-none">
+            
+            <Image
+              src="/images/service-operations.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden="true"
+            />
+
+          </div>
+
         <div className="w-full px-6 lg:px-12 max-w-4xl mx-auto relative z-10 text-center">
           <AnimatedSection>
             <h2 className="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-[0.95]">Clarity isn&apos;t a luxury.</h2>
