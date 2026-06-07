@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { benefits } from '@/app/constants/benefits'
 import { ArrowRight, Check, TrendingUp, Users, FileText, Zap } from 'lucide-react'
 import { services, testimonials } from '@/lib/data'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -15,8 +16,10 @@ export default function Home() {
         <svg className="absolute -right-[12vw] top-[34vh] w-[52vw] h-[52vw] opacity-[0.08]" viewBox="0 0 400 400" fill="none">
           <circle cx="200" cy="200" r="190" stroke="currentColor" strokeWidth="1" />
         </svg>
+
         <div className="w-full px-6 lg:px-12 py-12 lg:py-0">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center max-w-7xl mx-auto">
+
             <AnimatedSection animation="scale" className="relative order-2 lg:order-1">
               <div className="relative w-[70vw] h-[70vw] lg:w-[50vh] lg:h-[50vh] mx-auto rounded-full overflow-hidden">
                 <img src="/images/hero-workspace.jpg" alt="Modern workspace" className="w-full h-full object-cover" />
@@ -34,26 +37,29 @@ export default function Home() {
                 </div>
               </div>
             </AnimatedSection>
+
             <AnimatedSection animation="fade-right" delay={0.2} className="order-1 lg:order-2 text-center lg:text-left">
               <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">
                 PERUGI PARTNERS
               </span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-[0.95]">
-                Modern Financial Clarity for{' '}
-                <span className="text-emerald-500">Growing</span> Businesses
+              <h1 className="text-4xl sm:text-5xl lg:text-3xl xl:text-5xl font-bold mb-6 leading-[0.95]">
+                Stop Guessing Your Finances & {" "}
+                <span className="text-emerald-500">Get Clear Financial Systems {" "}</span> for Growing Businesses
               </h1>
               <p className="text-lg text-muted-foreground mb-4 max-w-lg mx-auto lg:mx-0">
-                Bookkeeping, financial reporting, and operational financial support for entrepreneurs and modern businesses.
+                Built for businesses that want more than outdated accounting and bookkeeping. 
               </p>
+
               <p className="text-base text-muted-foreground mb-8 max-w-lg mx-auto lg:mx-0">
-                Built for businesses that want more than outdated accounting. Helping founders understand where their money is going and how their business is performing.
+                We help founders clearly understand where their money is going and how their business is actually performing through structured bookkeeping, financial reporting, and ongoing financial clarity.
               </p>
+              
               <div className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-                <Link href="/contact" className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
-                  Book a Consultation <ArrowRight className="w-4 h-4" />
+                <Link href="/get-started" className="inline-flex items-center gap-2 px-6 py-3.5 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
+                  Get Started <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/services" className="inline-flex items-center gap-2 px-6 py-3.5 border border-border rounded-full hover:bg-accent/20 transition-all text-foreground font-medium">
-                  View Services
+                  All Services
                 </Link>
               </div>
             </AnimatedSection>
@@ -62,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* Trust */}
-      <section className="w-full py-20 lg:py-28 bg-background">
+      {/* <section className="w-full py-20 lg:py-28 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
@@ -80,6 +86,39 @@ export default function Home() {
             ))}
           </div>
         </div>
+      </section> */}
+      <section className="w-full py-20 lg:py-28 bg-card/30">
+        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+          <AnimatedSection className="text-center mb-14">
+            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+              Your books should do more than{" "} <span className="text-emerald-500">keep score</span>.
+            </h2>
+
+            <p className="text-lg text-muted-foreground mb-1 mt-6 font-bold">
+              Accurate bookkeeping is only the starting point. 
+            </p>
+            <p className="text-lg text-muted-foreground mb-4">
+              Clear financial reports help you understand performance, monitor cash flow, and make confident business decisions. 
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {benefits.map((benefit: { title: string; description: string }) => (
+              <div
+                key={benefit.title}
+                className="p-6 rounded-2xl border border-border bg-card"
+              >
+                <h3 className="text-lg font-semibold mb-3">
+                  {benefit.title}
+                </h3>
+
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {benefit.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* Problem/Solution */}
@@ -87,24 +126,43 @@ export default function Home() {
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
-              Most businesses make money. <span className="text-emerald-500">Few truly understand it.</span>
+              Most businesses make money, but <span className="text-emerald-500">Few have financial clarity.</span>
             </h2>
+
+            <p className="text-lg text-muted-foreground mb-1 mt-6 font-bold">
+              Making money in your business is only half the battle. 
+            </p>
+            <p className="text-lg text-muted-foreground mb-4 ">
+              Without clear financial systems and reporting, it becomes difficult to understand cash flow, measure performance, and make confident decisions. The result is missed opportunities, unnecessary costs, and limited visibility into the financial health of your business.  
+            </p>
           </AnimatedSection>
           <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
             <AnimatedSection animation="fade-left">
-              <h3 className="text-sm uppercase tracking-wider text-muted-foreground mono mb-6">The Problem</h3>
+              <h3 className="text-sm uppercase tracking-wider text-muted-foreground mono mb-6">What Is Breaking Most Businesses</h3>
               <ul className="space-y-4">
-                {['No visibility into cash flow', 'Messy records', 'Untracked expenses', 'Financial confusion', 'Poor operational visibility'].map((p) => (
+                {[
+                    'Cash flow is unclear until problems appear',
+                    'Records are incomplete or inconsistent',
+                    'Expenses are not tracked in real time',
+                    'Business decisions are made without financial data',
+                    'Owners lack visibility into true performance'
+                  ].map((p) => (
                   <li key={p} className="flex items-center gap-3 text-muted-foreground">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-400/60" />{p}
+                    <span className="w-1.5 h-1.5 rounded-full bg-red-500/90" />{p}
                   </li>
                 ))}
               </ul>
             </AnimatedSection>
             <AnimatedSection animation="fade-right">
-              <h3 className="text-sm uppercase tracking-wider text-emerald-500 mono mb-6">Our Solution</h3>
+              <h3 className="text-sm uppercase tracking-wider text-emerald-500 mono mb-6">What We Put in Place</h3>
               <ul className="space-y-4">
-                {['Organized bookkeeping', 'Clear monthly reports', 'Financial visibility', 'Operational insights', 'Reliable systems'].map((s) => (
+                {[
+                  'Structured bookkeeping that stays up to date',
+                  'Clear monthly financial reports you can actually use',
+                  'Full visibility into cash flow and spending',
+                  'Simple insights that support better decisions',
+                  'Reliable systems that keep finances organized'
+                ].map((s) => (
                   <li key={s} className="flex items-center gap-3">
                     <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
                       <Check className="w-3.5 h-3.5 text-emerald-500" />
@@ -122,10 +180,14 @@ export default function Home() {
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
-              Services built for busy <span className="text-emerald-500">founders</span>
+              Services built to <span className="text-emerald-500">keep your business financially sound</span>
             </h2>
+
+            <p className="text-lg text-muted-foreground mb-1 mt-6 font-bold">
+              Your Business&apos;s financial health is more than your income. 
+            </p>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              From monthly books to operational dashboards—clear, timely, and built to scale.
+              From bookkeeping to financial reporting and ongoing support, we help business owners stay on top of their numbers with accurate records, clear insights, and reliable financial processes.
             </p>
           </AnimatedSection>
           <div className="grid md:grid-cols-3 gap-6">
