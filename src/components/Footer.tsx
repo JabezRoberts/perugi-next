@@ -2,8 +2,18 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Mail, Globe } from 'lucide-react'
+// import { Mail, Globe } from 'lucide-react'
 import { siteConfig } from '@/lib/data'
+import {
+  FaYoutube,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaTiktok,
+  FaXTwitter,
+} from "react-icons/fa6";
+
+import { Mail } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -172,93 +182,120 @@ export default function Footer() {
         </motion.div>
       </div>
 
+
+      {/** Section above icons */}
       {/* Footer Links */}
-      <div className="w-full px-6 lg:px-12 py-12 lg:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
-          <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex items-center gap-2 mb-4">
-              <span className="text-2xl font-bold text-foreground">
-                {siteConfig.name}
-              </span>
-              <span className="w-2 h-2 rounded-full bg-emerald-500" />
-            </Link>
+      {/* Footer Links */}
+<div className="w-full px-6 lg:px-12 py-12 lg:py-16">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8">
 
-            <p className="text-muted-foreground mb-6 max-w-sm">
-              Modern financial operations and bookkeeping for entrepreneurs and growing businesses.
-            </p>
+    {/* Brand Column */}
+    <div className="lg:col-span-2 flex flex-col gap-5">
 
-            <div className="flex items-center gap-3">
-              <a
-                href={`mailto:${siteConfig.email}`}
-                className="p-2.5 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-                aria-label="Email"
-              >
-                <Mail className="w-4 h-4 text-muted-foreground" />
-              </a>
+      {/* Brand Name */}
+      <Link href="/" className="inline-flex items-center gap-2 group">
+        <span
+          className="text-xl lg:text-2xl font-bold tracking-tight text-foreground"
+          style={{ fontFamily: "'Space Grotesk', system-ui, sans-serif" }}
+        >
+          Perugi Partners
+        </span>
 
-              <a
-                href="#"
-                className="p-2.5 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-                aria-label="Instagram"
-              >
-                <Globe className="w-4 h-4 text-muted-foreground" />
-              </a>
+        <span className="w-2 h-2 rounded-full bg-emerald-500 group-hover:scale-125 transition-transform" />
+      </Link>
 
-              <a
-                href="#"
-                className="p-2.5 rounded-full bg-muted hover:bg-muted/80 transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Globe className="w-4 h-4 text-muted-foreground" />
-              </a>
-            </div>
-          </div>
+      {/* Slogan */}
+      <p className="text-muted-foreground text-sm lg:text-base max-w-sm leading-relaxed">
+        Ongoing Financial Clarity For Modern Businesses
+      </p>
 
-          {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
-              <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
-                {title}
-              </h4>
+      {/* Social Icons */}
+      <div className="flex flex-wrap items-center gap-3 pt-2">
 
-              <ul className="space-y-3">
-                {links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-muted-foreground hover:text-emerald-500 transition-colors text-sm"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+        <a href={`mailto:${siteConfig.email}`} aria-label="Email"
+          className="p-2.5 rounded-full bg-card border border-border hover:border-emerald-500/40 hover:text-emerald-500 transition-all">
+          <Mail className="w-4 h-4" />
+        </a>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
-          </p>
+        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+          aria-label="YouTube"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaYoutube className="w-4 h-4" />
+        </a>
 
-          <div className="flex items-center gap-6">
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-            >
-              Privacy Policy
-            </Link>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaLinkedin className="w-4 h-4" />
+        </a>
 
-            <Link
-              href="#"
-              className="text-muted-foreground hover:text-foreground transition-colors text-sm"
-            >
-              Terms of Service
-            </Link>
-          </div>
-        </div>
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+          aria-label="Instagram"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaInstagram className="w-4 h-4" />
+        </a>
+
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+          aria-label="Meta"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaFacebook className="w-4 h-4" />
+        </a>
+
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+          aria-label="TikTok"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaTiktok className="w-4 h-4" />
+        </a>
+
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+          aria-label="X"
+          className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
+          <FaXTwitter className="w-4 h-4" />
+        </a>
+
       </div>
+    </div>
+
+    {/* Other Footer Columns */}
+    {Object.entries(footerLinks).map(([title, links]) => (
+      <div key={title}>
+        <h4 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground mb-4">
+          {title}
+        </h4>
+
+        <ul className="space-y-3">
+          {links.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="text-muted-foreground hover:text-emerald-500 transition-colors text-sm"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+
+  </div>
+
+  {/* Bottom Bar */}
+  <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+    <p className="text-muted-foreground text-sm">
+      © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
+    </p>
+
+    <div className="flex items-center gap-6">
+      <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+        Privacy Policy
+      </Link>
+      <Link href="#" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
+        Terms of Service
+      </Link>
+    </div>
+  </div>
+</div>
 
       {/* subtle background line */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none opacity-5">
