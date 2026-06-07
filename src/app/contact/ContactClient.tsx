@@ -633,7 +633,7 @@ export default function ContactClient() {
       </section>
 
       {/* Discussion Points */}
-      <section className="w-full py-20 lg:py-28 bg-card/30">
+      {/* <section className="w-full py-20 lg:py-28 bg-card/30">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-14">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -649,10 +649,10 @@ export default function ContactClient() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Final CTA */}
-      <section className="w-full py-20 lg:py-28 bg-[#0B0F17]">
+      {/* <section className="w-full py-20 lg:py-28 bg-[#0B0F17]">
         <div className="w-full px-6 lg:px-12 max-w-4xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
@@ -667,7 +667,7 @@ export default function ContactClient() {
             </a>
           </AnimatedSection>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }
