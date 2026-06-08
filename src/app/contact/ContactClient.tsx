@@ -226,43 +226,466 @@
 
 
 
+// 'use client'
+
+// import { useState } from 'react'
+// import { Mail, Phone, MapPin, Globe, Send, Check } from 'lucide-react'
+// import { siteConfig } from '@/lib/data'
+// import AnimatedSection from '@/components/AnimatedSection'
+// import { useForm, ValidationError } from '@formspree/react'
+
+// type ContactFormData = {
+//   name: string
+//   email: string
+//   phone: string
+//   subject: string
+//   message: string
+// }
+
+// export default function ContactClient() {
+//   // const [submitted, setSubmitted] = useState(false)
+//   const [state, handleSubmit] = useForm("mbdeowdo")
+//   const [formData, setFormData] = useState<ContactFormData>({
+//     name: '',
+//     email: '',
+//     phone: '',
+//     subject: '',
+//     message: '',
+//   })
+
+//   const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true) }
+
+//   const handleChange = (
+//     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+//   ) => {
+//     const { name, value } = e.target
+
+//     setFormData(prev => ({
+//       ...prev,
+//       [name]: value,
+//     }))
+//   }
+
+//   return (
+//     <>
+//       {/* Hero */}
+//       <section className="relative min-h-[50vh] w-full flex items-center bg-background pt-28 pb-12">
+//         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+//           <AnimatedSection className="max-w-3xl">
+//             <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">Contact Us</span>
+//             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-[0.95]">
+//               Let&apos;s talk about your <span className="text-emerald-500">business</span>.
+//             </h1>
+//             <p className="text-lg text-muted-foreground max-w-xl">
+//               Whether you need bookkeeping support, financial organization, or operational visibility, we&apos;re here to help.
+//             </p>
+//           </AnimatedSection>
+//         </div>
+//       </section>
+
+//       {/* Contact Form */}
+//       <section className="w-full py-16 lg:py-24 bg-background">
+//         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+//           <div className="grid lg:grid-cols-5 gap-12">
+//             {/* Info */}
+//             <AnimatedSection animation="fade-left" className="lg:col-span-2">
+//               <h2 className="text-2xl lg:text-3xl font-bold mb-6">
+//                 Schedule a <span className="text-emerald-500">consultation</span>.
+//               </h2>
+//               <div className="space-y-5 mb-10">
+//                 {[
+//                   { icon: Mail, label: 'Email', value: siteConfig.email, href: `mailto:${siteConfig.email}` },
+//                   { icon: Phone, label: 'Phone', value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
+//                   { icon: MapPin, label: 'Location', value: siteConfig.address, href: undefined },
+//                 ].map((item) => (
+//                   <div key={item.label} className="flex items-center gap-4">
+//                     <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+//                       <item.icon className="w-5 h-5 text-emerald-500" />
+//                     </div>
+//                     <div>
+//                       <p className="text-sm text-muted-foreground">{item.label}</p>
+//                       {item.href ? (
+//                         <a href={item.href} className="font-medium hover:text-emerald-500 transition-colors">{item.value}</a>
+//                       ) : (
+//                         <span className="font-medium">{item.value}</span>
+//                       )}
+//                     </div>
+//                   </div>
+//                 ))}
+//               </div>
+//               <div>
+//                 <p className="text-sm text-muted-foreground mb-3">Follow us</p>
+//                 <div className="flex items-center gap-3">
+//                   <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="Instagram">
+//                     <Globe className="w-4 h-4" />
+//                   </a>
+//                   <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="LinkedIn">
+//                     <Globe className="w-4 h-4" />
+//                   </a>
+//                 </div>
+//               </div>
+//             </AnimatedSection>
+
+//             {/* Form */}
+//             <AnimatedSection animation="fade-right" className="lg:col-span-3">
+//               <div className="p-6 lg:p-8 rounded-3xl bg-card border border-border">
+//                 {submitted ? (
+//                   <div className="flex flex-col items-center justify-center py-20 text-center">
+//                     <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6">
+//                       <Check className="w-10 h-10 text-emerald-500" />
+//                     </div>
+//                     <h3 className="text-2xl font-bold mb-3">Thank you!</h3>
+//                     <p className="text-muted-foreground max-w-md">We&apos;ve received your message and will get back to you within 24 hours.</p>
+//                   </div>
+//                 ) : (
+//                   // <form onSubmit={handleSubmit} className="space-y-5">
+//                   //   <div className="grid sm:grid-cols-2 gap-5">
+                      
+//                   //     <div>
+//                   //       <label htmlFor="name" className="block text-sm font-medium mb-2">Name <span className="text-red-400">*</span></label>
+//                   //       <input 
+//                   //         type="text" 
+//                   //         id="name" 
+//                   //         name="name" 
+//                   //         required 
+//                   //         value={formData.name} 
+//                   //         onChange={handleChange}
+//                   //         aria-label="Full Name"
+//                   //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                   //         placeholder="John Brown" 
+//                   //       />
+//                   //     </div>
+
+//                   //     <div>
+//                   //       <label htmlFor="businessName" className="block text-sm font-medium mb-2">Business Name</label>
+//                   //       <input 
+//                   //         type="text" 
+//                   //         id="businessName" 
+//                   //         name="businessName" 
+//                   //         value={formData.businessName} 
+//                   //         onChange={handleChange}
+//                   //         aria-label="Business Name"
+//                   //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                   //         placeholder="ABC Company Limited" 
+//                   //       />
+//                   //     </div>
+//                   //   </div>
+
+//                   //   <div className="grid sm:grid-cols-2 gap-5">
+                      
+//                   //     <div>
+//                   //       <label htmlFor="email" className="block text-sm font-medium mb-2">Email <span className="text-red-400">*</span></label>
+//                   //       <input
+//                   //         type="email" 
+//                   //         id="email" 
+//                   //         name="email" 
+//                   //         required 
+//                   //         value={formData.email} 
+//                   //         onChange={handleChange}
+//                   //         aria-label="Email Address"
+//                   //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                   //         placeholder="mail@company.com" />
+//                   //     </div>
+
+//                   //     <div>
+//                   //       <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
+//                   //       <input 
+//                   //         type="tel" 
+//                   //         id="phone" 
+//                   //         name="phone" 
+//                   //         value={formData.phone} 
+//                   //         onChange={handleChange}
+//                   //         aria-label="Phone Number"
+//                   //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                   //         placeholder="+1 (555) 000-0000" />
+//                   //     </div>
+//                   //   </div>
+
+//                   //   <div className="grid sm:grid-cols-3 gap-5">
+//                   //     <div className="sm:col-span-3">
+//                   //     <label
+//                   //       className="block text-sm font-medium mb-3"
+//                   //       id="services-label"
+//                   //     >
+//                   //       Services Needed
+//                   //     </label>
+
+//                   //     <div
+//                   //       role="group"
+//                   //       aria-labelledby="services-label"
+//                   //       className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"
+//                   //     >
+//                   //       {[
+//                   //         {
+//                   //           value: 'bookkeeping',
+//                   //           label: 'Monthly Bookkeeping',
+//                   //         },
+//                   //         {
+//                   //           value: 'accountsReceivable',
+//                   //           label: 'Accounts Receivable',
+//                   //         },
+//                   //         {
+//                   //           value: 'accountsPayable',
+//                   //           label: 'Accounts Payable',
+//                   //         },
+//                   //         {
+//                   //           value: 'payroll',
+//                   //           label: 'Payroll Support',
+//                   //         },
+//                   //         {
+//                   //           value: 'reporting',
+//                   //           label: 'Financial Reporting',
+//                   //         },
+//                   //         {
+//                   //           value: 'cleanup',
+//                   //           label: 'Bookkeeping Cleanup',
+//                   //         },
+//                   //         {
+//                   //           value: 'consultation',
+//                   //           label: 'Monthly Consultation',
+//                   //         },
+//                   //         {
+//                   //           value: 'dashboards',
+//                   //           label: 'KPI Dashboard',
+//                   //         },
+//                   //       ].map(service => (
+//                   //         <label
+//                   //           key={service.value}
+//                   //           className="flex items-center gap-3 p-3 rounded-xl border border-border bg-background cursor-pointer hover:border-emerald-500/40 transition-colors"
+//                   //         >
+//                   //           <input
+//                   //             type="checkbox"
+//                   //             value={service.value}
+//                   //             checked={formData.services.includes(service.value)}
+//                   //             onChange={handleCheckboxChange}
+//                   //             aria-label={service.label}
+//                   //             className="h-4 w-4"
+//                   //           />
+
+//                   //           <span>{service.label}</span>
+//                   //         </label>
+//                   //       ))}
+//                   //     </div>
+//                   //   </div>
+
+//                   //     <div>
+//                   //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Average Monthly Transactions</label>
+//                   //       <select
+//                   //         id="transactions"
+//                   //         name="transactions"
+//                   //         aria-label="Average Monthly Transactions"
+//                   //         value={formData.transactions}
+//                   //         onChange={handleChange}
+//                   //       >
+//                   //         <option value="">Select range</option>
+//                   //         <option value="0-50">0 to 50</option>
+//                   //         <option value="51-100">51 to 100</option>
+//                   //         <option value="101-199">101 to 199</option>
+//                   //         <option value="200+">200+</option>
+//                   //       </select>
+//                   //     </div>
+                      
+//                   //     <div>
+//                   //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Number of Bank Accounts</label>
+//                   //       <select
+//                   //         id="bankAccounts"
+//                   //         name="bankAccounts"
+//                   //         aria-label="Number of Bank Accounts"
+//                   //         value={formData.bankAccounts}
+//                   //         onChange={handleChange}
+//                   //       >
+//                   //         <option value="">Select range</option>
+//                   //         <option value="0-1k">0 to 1</option>
+//                   //         <option value="1 to 3">1 to 3</option>
+//                   //         <option value="4+">4+</option>
+//                   //       </select>
+//                   //     </div>
+
+//                   //   </div>
+//                   //   <div>
+//                   //     <label htmlFor="message" className="block text-sm font-medium mb-2">Message <span className="text-red-400">*</span></label>
+//                   //     <textarea 
+//                   //       id="message" 
+//                   //       name="message" 
+//                   //       required 
+//                   //       rows={5} 
+//                   //       value={formData.message} 
+//                   //       onChange={handleChange}
+//                   //       className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
+//                   //       placeholder="Tell us about your business, bookkeeping needs, current systems, and any challenges you're facing..." 
+//                   //     />
+//                   //   </div>
+//                   //   <button type="submit"
+//                   //     className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
+//                   //     Send Message <Send className="w-4 h-4" />
+//                   //   </button>
+//                   // </form>
+//                   <form onSubmit={handleSubmit} className="space-y-5">
+                    
+//                     {/* Name + Email */}
+//                     <div className="grid sm:grid-cols-2 gap-5">
+//                       <div>
+//                         <label htmlFor="name" className="block text-sm font-medium mb-2">
+//                           Name <span className="text-red-400">*</span>
+//                         </label>
+//                         <input
+//                           type="text"
+//                           id="name"
+//                           name="name"
+//                           required
+//                           aria-label="Full Name"
+//                           autoComplete="name"
+//                           value={formData.name}
+//                           onChange={handleChange}
+//                           className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                           placeholder="John Brown"
+//                         />
+//                       </div>
+
+//                       <div>
+//                         <label htmlFor="email" className="block text-sm font-medium mb-2">
+//                           Email <span className="text-red-400">*</span>
+//                         </label>
+//                         <input
+//                           type="email"
+//                           id="email"
+//                           name="email"
+//                           required
+//                           aria-label="Email Address"
+//                           autoComplete="email"
+//                           value={formData.email}
+//                           onChange={handleChange}
+//                           className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                           placeholder="mail@company.com"
+//                         />
+//                       </div>
+
+//                     </div>
+
+//                     {/* Phone + Subject */}
+//                     <div className="grid sm:grid-cols-2 gap-5">
+
+//                       <div>
+//                         <label htmlFor="phone" className="block text-sm font-medium mb-2">
+//                           Phone Number
+//                         </label>
+//                         <input
+//                           type="tel"
+//                           id="phone"
+//                           name="phone"
+//                           aria-label="Phone Number"
+//                           autoComplete="tel"
+//                           value={formData.phone}
+//                           onChange={handleChange}
+//                           className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                           placeholder="+1 (555) 000-0000"
+//                         />
+//                       </div>
+
+//                       <div>
+//                         <label htmlFor="subject" className="block text-sm font-medium mb-2">
+//                           Subject
+//                         </label>
+//                         <input
+//                           type="text"
+//                           id="subject"
+//                           name="subject"
+//                           aria-label="Message Subject"
+//                           value={formData.subject}
+//                           onChange={handleChange}
+//                           className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
+//                           placeholder="How can we help?"
+//                         />
+//                       </div>
+
+//                     </div>
+
+//                     {/* Message */}
+//                     <div>
+//                       <label htmlFor="message" className="block text-sm font-medium mb-2">
+//                         Message <span className="text-red-400">*</span>
+//                       </label>
+
+//                       <textarea
+//                         id="message"
+//                         name="message"
+//                         required
+//                         rows={6}
+//                         aria-label="Message"
+//                         value={formData.message}
+//                         onChange={handleChange}
+//                         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
+//                         placeholder="Tell us what you need help with..."
+//                       />
+//                     </div>
+
+//                     {/* Submit */}
+//                     <button
+//                       type="submit"
+//                       className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all"
+//                     >
+//                       Send Message <Send className="w-4 h-4" />
+//                     </button>
+//                   </form>
+//                 )}
+//               </div>
+//             </AnimatedSection>
+//           </div>
+//         </div>
+//       </section>
+
+//       {/* Discussion Points */}
+//       {/* <section className="w-full py-20 lg:py-28 bg-card/30">
+//         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
+//           <AnimatedSection className="text-center mb-14">
+//             <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+//               What we&apos;ll <span className="text-emerald-500">discuss</span>.
+//             </h2>
+//           </AnimatedSection>
+//           <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
+//             {['Current systems', 'Financial challenges', 'Reporting needs', 'Growth goals', 'Operational concerns'].map((point, i) => (
+//               <AnimatedSection key={point} delay={i * 0.08} className="p-5 rounded-2xl bg-card border border-border text-center">
+//                 <span className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 mx-auto mb-3">{i + 1}</span>
+//                 <p className="font-medium">{point}</p>
+//               </AnimatedSection>
+//             ))}
+//           </div>
+//         </div>
+//       </section> */}
+
+//       {/* Final CTA */}
+//       {/* <section className="w-full py-20 lg:py-28 bg-[#0B0F17]">
+//         <div className="w-full px-6 lg:px-12 max-w-4xl mx-auto text-center">
+//           <AnimatedSection>
+//             <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
+//               Modern businesses deserve modern financial <span className="text-emerald-500">support</span>.
+//             </h2>
+//             <p className="text-white/60 text-lg max-w-xl mx-auto mb-8">
+//               Perugi Partners helps businesses operate with greater clarity, confidence, and control.
+//             </p>
+//             <a href={`mailto:${siteConfig.email}`}
+//               className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
+//               <Mail className="w-4 h-4" /> Send us an email
+//             </a>
+//           </AnimatedSection>
+//         </div>
+//       </section> */}
+//     </>
+//   )
+// }
+
+
+
+
 'use client'
 
-import { useState } from 'react'
 import { Mail, Phone, MapPin, Globe, Send, Check } from 'lucide-react'
 import { siteConfig } from '@/lib/data'
 import AnimatedSection from '@/components/AnimatedSection'
-
-type ContactFormData = {
-  name: string
-  email: string
-  phone: string
-  subject: string
-  message: string
-}
+import { useForm } from '@formspree/react'
 
 export default function ContactClient() {
-  const [submitted, setSubmitted] = useState(false)
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
-  })
-
-  const handleSubmit = (e: React.FormEvent) => { e.preventDefault(); setSubmitted(true) }
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
+  const [state, handleSubmit] = useForm("mbdeowdo")
 
   return (
     <>
@@ -270,12 +693,17 @@ export default function ContactClient() {
       <section className="relative min-h-[50vh] w-full flex items-center bg-background pt-28 pb-12">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="max-w-3xl">
-            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">Contact Us</span>
+            <span className="mono text-xs uppercase tracking-[0.15em] text-muted-foreground mb-4 block">
+              Contact Us
+            </span>
+
             <h1 className="text-4xl lg:text-6xl font-bold mb-6 leading-[0.95]">
               Let&apos;s talk about your <span className="text-emerald-500">business</span>.
             </h1>
+
             <p className="text-lg text-muted-foreground max-w-xl">
-              Whether you need bookkeeping support, financial organization, or operational visibility, we&apos;re here to help.
+              Whether you need bookkeeping support, financial organization, or operational visibility,
+              we&apos;re here to help.
             </p>
           </AnimatedSection>
         </div>
@@ -285,25 +713,31 @@ export default function ContactClient() {
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-5 gap-12">
-            {/* Info */}
+
+            {/* INFO */}
             <AnimatedSection animation="fade-left" className="lg:col-span-2">
               <h2 className="text-2xl lg:text-3xl font-bold mb-6">
                 Schedule a <span className="text-emerald-500">consultation</span>.
               </h2>
+
               <div className="space-y-5 mb-10">
                 {[
                   { icon: Mail, label: 'Email', value: siteConfig.email, href: `mailto:${siteConfig.email}` },
                   { icon: Phone, label: 'Phone', value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
-                  { icon: MapPin, label: 'Location', value: siteConfig.address, href: undefined },
+                  { icon: MapPin, label: 'Location', value: siteConfig.address },
                 ].map((item) => (
                   <div key={item.label} className="flex items-center gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center flex-shrink-0">
+                    <div className="w-11 h-11 rounded-xl bg-emerald-500/20 flex items-center justify-center">
                       <item.icon className="w-5 h-5 text-emerald-500" />
                     </div>
+
                     <div>
                       <p className="text-sm text-muted-foreground">{item.label}</p>
+
                       {item.href ? (
-                        <a href={item.href} className="font-medium hover:text-emerald-500 transition-colors">{item.value}</a>
+                        <a className="font-medium hover:text-emerald-500 transition" href={item.href}>
+                          {item.value}
+                        </a>
                       ) : (
                         <span className="font-medium">{item.value}</span>
                       )}
@@ -311,363 +745,114 @@ export default function ContactClient() {
                   </div>
                 ))}
               </div>
+
               <div>
                 <p className="text-sm text-muted-foreground mb-3">Follow us</p>
-                <div className="flex items-center gap-3">
-                  <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="Instagram">
+                <div className="flex gap-3">
+                  <a className="w-10 h-10 rounded-full bg-card border flex items-center justify-center">
                     <Globe className="w-4 h-4" />
                   </a>
-                  <a href="#" className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-emerald-500/20 hover:border-emerald-500/30 transition-all" aria-label="LinkedIn">
+                  <a className="w-10 h-10 rounded-full bg-card border flex items-center justify-center">
                     <Globe className="w-4 h-4" />
                   </a>
                 </div>
               </div>
             </AnimatedSection>
 
-            {/* Form */}
+            {/* FORM */}
             <AnimatedSection animation="fade-right" className="lg:col-span-3">
               <div className="p-6 lg:p-8 rounded-3xl bg-card border border-border">
-                {submitted ? (
+
+                {state.succeeded ? (
                   <div className="flex flex-col items-center justify-center py-20 text-center">
                     <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6">
                       <Check className="w-10 h-10 text-emerald-500" />
                     </div>
+
                     <h3 className="text-2xl font-bold mb-3">Thank you!</h3>
-                    <p className="text-muted-foreground max-w-md">We&apos;ve received your message and will get back to you within 24 hours.</p>
+                    <p className="text-muted-foreground max-w-md">
+                      We&apos;ve received your message and will get back to you within 24 hours.
+                    </p>
                   </div>
                 ) : (
-                  // <form onSubmit={handleSubmit} className="space-y-5">
-                  //   <div className="grid sm:grid-cols-2 gap-5">
-                      
-                  //     <div>
-                  //       <label htmlFor="name" className="block text-sm font-medium mb-2">Name <span className="text-red-400">*</span></label>
-                  //       <input 
-                  //         type="text" 
-                  //         id="name" 
-                  //         name="name" 
-                  //         required 
-                  //         value={formData.name} 
-                  //         onChange={handleChange}
-                  //         aria-label="Full Name"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="John Brown" 
-                  //       />
-                  //     </div>
-
-                  //     <div>
-                  //       <label htmlFor="businessName" className="block text-sm font-medium mb-2">Business Name</label>
-                  //       <input 
-                  //         type="text" 
-                  //         id="businessName" 
-                  //         name="businessName" 
-                  //         value={formData.businessName} 
-                  //         onChange={handleChange}
-                  //         aria-label="Business Name"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="ABC Company Limited" 
-                  //       />
-                  //     </div>
-                  //   </div>
-
-                  //   <div className="grid sm:grid-cols-2 gap-5">
-                      
-                  //     <div>
-                  //       <label htmlFor="email" className="block text-sm font-medium mb-2">Email <span className="text-red-400">*</span></label>
-                  //       <input
-                  //         type="email" 
-                  //         id="email" 
-                  //         name="email" 
-                  //         required 
-                  //         value={formData.email} 
-                  //         onChange={handleChange}
-                  //         aria-label="Email Address"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="mail@company.com" />
-                  //     </div>
-
-                  //     <div>
-                  //       <label htmlFor="phone" className="block text-sm font-medium mb-2">Phone Number</label>
-                  //       <input 
-                  //         type="tel" 
-                  //         id="phone" 
-                  //         name="phone" 
-                  //         value={formData.phone} 
-                  //         onChange={handleChange}
-                  //         aria-label="Phone Number"
-                  //         className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                  //         placeholder="+1 (555) 000-0000" />
-                  //     </div>
-                  //   </div>
-
-                  //   <div className="grid sm:grid-cols-3 gap-5">
-                  //     <div className="sm:col-span-3">
-                  //     <label
-                  //       className="block text-sm font-medium mb-3"
-                  //       id="services-label"
-                  //     >
-                  //       Services Needed
-                  //     </label>
-
-                  //     <div
-                  //       role="group"
-                  //       aria-labelledby="services-label"
-                  //       className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3"
-                  //     >
-                  //       {[
-                  //         {
-                  //           value: 'bookkeeping',
-                  //           label: 'Monthly Bookkeeping',
-                  //         },
-                  //         {
-                  //           value: 'accountsReceivable',
-                  //           label: 'Accounts Receivable',
-                  //         },
-                  //         {
-                  //           value: 'accountsPayable',
-                  //           label: 'Accounts Payable',
-                  //         },
-                  //         {
-                  //           value: 'payroll',
-                  //           label: 'Payroll Support',
-                  //         },
-                  //         {
-                  //           value: 'reporting',
-                  //           label: 'Financial Reporting',
-                  //         },
-                  //         {
-                  //           value: 'cleanup',
-                  //           label: 'Bookkeeping Cleanup',
-                  //         },
-                  //         {
-                  //           value: 'consultation',
-                  //           label: 'Monthly Consultation',
-                  //         },
-                  //         {
-                  //           value: 'dashboards',
-                  //           label: 'KPI Dashboard',
-                  //         },
-                  //       ].map(service => (
-                  //         <label
-                  //           key={service.value}
-                  //           className="flex items-center gap-3 p-3 rounded-xl border border-border bg-background cursor-pointer hover:border-emerald-500/40 transition-colors"
-                  //         >
-                  //           <input
-                  //             type="checkbox"
-                  //             value={service.value}
-                  //             checked={formData.services.includes(service.value)}
-                  //             onChange={handleCheckboxChange}
-                  //             aria-label={service.label}
-                  //             className="h-4 w-4"
-                  //           />
-
-                  //           <span>{service.label}</span>
-                  //         </label>
-                  //       ))}
-                  //     </div>
-                  //   </div>
-
-                  //     <div>
-                  //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Average Monthly Transactions</label>
-                  //       <select
-                  //         id="transactions"
-                  //         name="transactions"
-                  //         aria-label="Average Monthly Transactions"
-                  //         value={formData.transactions}
-                  //         onChange={handleChange}
-                  //       >
-                  //         <option value="">Select range</option>
-                  //         <option value="0-50">0 to 50</option>
-                  //         <option value="51-100">51 to 100</option>
-                  //         <option value="101-199">101 to 199</option>
-                  //         <option value="200+">200+</option>
-                  //       </select>
-                  //     </div>
-                      
-                  //     <div>
-                  //       <label htmlFor="revenue" className="block text-sm font-medium mb-2">Number of Bank Accounts</label>
-                  //       <select
-                  //         id="bankAccounts"
-                  //         name="bankAccounts"
-                  //         aria-label="Number of Bank Accounts"
-                  //         value={formData.bankAccounts}
-                  //         onChange={handleChange}
-                  //       >
-                  //         <option value="">Select range</option>
-                  //         <option value="0-1k">0 to 1</option>
-                  //         <option value="1 to 3">1 to 3</option>
-                  //         <option value="4+">4+</option>
-                  //       </select>
-                  //     </div>
-
-                  //   </div>
-                  //   <div>
-                  //     <label htmlFor="message" className="block text-sm font-medium mb-2">Message <span className="text-red-400">*</span></label>
-                  //     <textarea 
-                  //       id="message" 
-                  //       name="message" 
-                  //       required 
-                  //       rows={5} 
-                  //       value={formData.message} 
-                  //       onChange={handleChange}
-                  //       className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
-                  //       placeholder="Tell us about your business, bookkeeping needs, current systems, and any challenges you're facing..." 
-                  //     />
-                  //   </div>
-                  //   <button type="submit"
-                  //     className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
-                  //     Send Message <Send className="w-4 h-4" />
-                  //   </button>
-                  // </form>
                   <form onSubmit={handleSubmit} className="space-y-5">
-                    
-                    {/* Name + Email */}
-                    <div className="grid sm:grid-cols-2 gap-5">
-                      <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
-                          Name <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          id="name"
-                          name="name"
-                          required
-                          aria-label="Full Name"
-                          autoComplete="name"
-                          value={formData.name}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                          placeholder="John Brown"
-                        />
-                      </div>
 
-                      <div>
-                        <label htmlFor="email" className="block text-sm font-medium mb-2">
-                          Email <span className="text-red-400">*</span>
-                        </label>
-                        <input
-                          type="email"
-                          id="email"
-                          name="email"
-                          required
-                          aria-label="Email Address"
-                          autoComplete="email"
-                          value={formData.email}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                          placeholder="mail@company.com"
-                        />
-                      </div>
+                    {/* 🛑 HONEYPOT (SPAM PROTECTION) */}
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      className="hidden"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
 
-                    </div>
-
-                    {/* Phone + Subject */}
+                    {/* NAME + EMAIL */}
                     <div className="grid sm:grid-cols-2 gap-5">
 
-                      <div>
-                        <label htmlFor="phone" className="block text-sm font-medium mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          id="phone"
-                          name="phone"
-                          aria-label="Phone Number"
-                          autoComplete="tel"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                          placeholder="+1 (555) 000-0000"
-                        />
-                      </div>
-
-                      <div>
-                        <label htmlFor="subject" className="block text-sm font-medium mb-2">
-                          Subject
-                        </label>
-                        <input
-                          type="text"
-                          id="subject"
-                          name="subject"
-                          aria-label="Message Subject"
-                          value={formData.subject}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all"
-                          placeholder="How can we help?"
-                        />
-                      </div>
-
-                    </div>
-
-                    {/* Message */}
-                    <div>
-                      <label htmlFor="message" className="block text-sm font-medium mb-2">
-                        Message <span className="text-red-400">*</span>
-                      </label>
-
-                      <textarea
-                        id="message"
-                        name="message"
+                      <input
+                        type="text"
+                        name="name"
                         required
-                        rows={6}
-                        aria-label="Message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-background border border-border text-foreground focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition-all resize-none"
-                        placeholder="Tell us what you need help with..."
+                        placeholder="Full Name"
+                        className="w-full px-4 py-3 rounded-xl bg-background border border-border"
                       />
+
+                      <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="Email Address"
+                        className="w-full px-4 py-3 rounded-xl bg-background border border-border"
+                      />
+
                     </div>
 
-                    {/* Submit */}
+                    {/* PHONE + SUBJECT */}
+                    <div className="grid sm:grid-cols-2 gap-5">
+
+                      <input
+                        type="tel"
+                        name="phone"
+                        placeholder="Phone Number"
+                        className="w-full px-4 py-3 rounded-xl bg-background border border-border"
+                      />
+
+                      <input
+                        type="text"
+                        name="subject"
+                        placeholder="Subject"
+                        className="w-full px-4 py-3 rounded-xl bg-background border border-border"
+                      />
+
+                    </div>
+
+                    {/* MESSAGE */}
+                    <textarea
+                      name="message"
+                      required
+                      rows={6}
+                      placeholder="Tell us what you need help with..."
+                      className="w-full px-4 py-3 rounded-xl bg-background border border-border resize-none"
+                    />
+
+                    {/* SUBMIT */}
                     <button
                       type="submit"
-                      className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all"
+                      disabled={state.submitting}
+                      className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full disabled:opacity-50"
                     >
-                      Send Message <Send className="w-4 h-4" />
+                      {state.submitting ? 'Sending...' : 'Send Message'}
+                      <Send className="w-4 h-4" />
                     </button>
+
                   </form>
                 )}
               </div>
             </AnimatedSection>
+
           </div>
         </div>
       </section>
-
-      {/* Discussion Points */}
-      {/* <section className="w-full py-20 lg:py-28 bg-card/30">
-        <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
-          <AnimatedSection className="text-center mb-14">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
-              What we&apos;ll <span className="text-emerald-500">discuss</span>.
-            </h2>
-          </AnimatedSection>
-          <div className="grid sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {['Current systems', 'Financial challenges', 'Reporting needs', 'Growth goals', 'Operational concerns'].map((point, i) => (
-              <AnimatedSection key={point} delay={i * 0.08} className="p-5 rounded-2xl bg-card border border-border text-center">
-                <span className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center text-sm font-bold text-emerald-500 mx-auto mb-3">{i + 1}</span>
-                <p className="font-medium">{point}</p>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section> */}
-
-      {/* Final CTA */}
-      {/* <section className="w-full py-20 lg:py-28 bg-[#0B0F17]">
-        <div className="w-full px-6 lg:px-12 max-w-4xl mx-auto text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
-              Modern businesses deserve modern financial <span className="text-emerald-500">support</span>.
-            </h2>
-            <p className="text-white/60 text-lg max-w-xl mx-auto mb-8">
-              Perugi Partners helps businesses operate with greater clarity, confidence, and control.
-            </p>
-            <a href={`mailto:${siteConfig.email}`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all">
-              <Mail className="w-4 h-4" /> Send us an email
-            </a>
-          </AnimatedSection>
-        </div>
-      </section> */}
     </>
   )
 }
