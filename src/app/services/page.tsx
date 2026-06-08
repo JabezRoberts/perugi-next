@@ -1,34 +1,40 @@
 import Link from 'next/link'
-import { ArrowRight, BookOpen, BarChart3, Users, Check, TrendingUp, Wallet } from 'lucide-react'
+import { ArrowRight} from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
+import { AllServices } from '@/app/constants/services'
+import { Check } from 'lucide-react'
 
-const allServices = [
-  {
-    title: 'Bookkeeping', description: 'Organized books, clear reporting, and reliable financial visibility for growing companies.',
-    icon: BookOpen, features: ['Transaction categorization', 'Reconciliation', 'Monthly bookkeeping', 'Expense tracking', 'Income tracking'],
-    href: '/bookkeeping', image: '/images/service-bookkeeping.jpg',
-  },
-  {
-    title: 'Financial Reporting', description: 'Clear monthly reports that help you understand your business performance.',
-    icon: BarChart3, features: ['Profit & Loss statements', 'Balance Sheets', 'Cash Flow summaries', 'Monthly reporting'],
-    href: '/contact', image: '/images/service-reporting.jpg',
-  },
-  {
-    title: 'Payroll Support', description: 'Streamlined payroll tracking and employee payment record management.',
-    icon: Users, features: ['Payroll tracking', 'Employee payment records', 'Payroll organization', 'Reporting support'],
-    href: '/contact', image: '/images/hero-workspace.jpg',
-  },
-  {
-    title: 'Financial Operations Support', description: 'End-to-end financial operations support for growing businesses.',
-    icon: Wallet, features: ['Expense visibility', 'Financial systems', 'Workflow organization', 'Operational financial tracking'],
-    href: '/contact', image: '/images/service-operations.jpg',
-  },
-  {
-    title: 'Business Financial Insights', description: 'Data-driven insights to help you make better business decisions.',
-    icon: TrendingUp, features: ['Margin visibility', 'KPI tracking', 'Spending analysis', 'Financial trend analysis'],
-    href: '/contact', image: '/images/pricing-hero.jpg',
-  },
-]
+// const allServices = [
+//   {
+//     title: 'Bookkeeping', description: 'Organized books, clear reporting, and reliable financial visibility for growing companies.',
+//     icon: BookOpen, features: ['Transaction categorization', 'Reconciliation', 'Monthly bookkeeping', 'Expense tracking', 'Income tracking'],
+//     href: '/bookkeeping', image: '/images/service-bookkeeping.jpg',
+//   },
+//   {
+//     title: 'Financial Reporting', description: 'Clear monthly reports that help you understand your business performance.',
+//     icon: BarChart3, features: ['Profit & Loss statements', 'Balance Sheets', 'Cash Flow summaries', 'Monthly reporting'],
+//     href: '/get-started', image: '/images/service-reporting.jpg',
+//   },
+//   {
+//     title: 'Payroll Support', description: 'Streamlined payroll tracking and employee payment record management.',
+//     icon: Users, features: ['Payroll tracking', 'Employee payment records', 'Payroll organization', 'Reporting support'],
+//     href: '/get-started', image: '/images/hero-workspace.jpg',
+//   },
+//   {
+//     title: 'Financial Operations Support', description: 'End-to-end financial operations support for growing businesses.',
+//     icon: Wallet, features: ['Expense visibility', 'Financial systems', 'Workflow organization', 'Operational financial tracking'],
+//     href: '/get-started', image: '/images/service-operations.jpg',
+//   },
+//   {
+//     title: 'Business Financial Insights', description: 'Data-driven insights to help you make better business decisions.',
+//     icon: TrendingUp, features: ['Margin visibility', 'KPI tracking', 'Spending analysis', 'Financial trend analysis'],
+//     href: '/get-started', image: '/images/pricing-hero.jpg',
+//   },
+// ];
+
+
+
+
 
 export const metadata = {
   title: 'Services | Perugi Partners',
@@ -62,7 +68,7 @@ export default function Services() {
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <div className="space-y-20">
-            {allServices.map((service, i) => (
+            {AllServices.map((service, i) => (
               <AnimatedSection key={service.title}>
                 <div className={`grid lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? '' : ''}`}>
                   <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
@@ -83,7 +89,10 @@ export default function Services() {
                         </li>
                       ))}
                     </ul>
-                    <Link href={service.href} className="inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:gap-3 transition-all">
+                    <Link 
+                      href={`/services/${service.slug}`}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-emerald-500 hover:gap-3 transition-all"
+                    >
                       Learn More <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
@@ -101,8 +110,8 @@ export default function Services() {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4 text-white">
               Let&apos;s simplify your financial <span className="text-emerald-500">operations</span>.
             </h2>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all mt-8">
-              Book a Consultation <ArrowRight className="w-4 h-4" />
+            <Link href="/get-started" className="inline-flex items-center gap-2 px-8 py-4 bg-emerald-500 text-white font-semibold rounded-full hover:scale-105 active:scale-95 transition-all mt-8">
+              Get Started <ArrowRight className="w-4 h-4" />
             </Link>
           </AnimatedSection>
         </div>
