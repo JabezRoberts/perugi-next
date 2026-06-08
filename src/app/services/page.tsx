@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowRight} from 'lucide-react'
 import AnimatedSection from '@/components/AnimatedSection'
 import { AllServices } from '@/app/constants/services'
@@ -73,7 +74,13 @@ export default function Services() {
                 <div className={`grid lg:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? '' : ''}`}>
                   <div className={i % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="rounded-3xl overflow-hidden">
-                      <img src={service.image} alt={service.title} className="w-full h-64 lg:h-80 object-cover" />
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        width={1200}
+                        height={800}
+                        className="w-full h-64 lg:h-80 object-cover"
+                      />
                     </div>
                   </div>
                   <div className={i % 2 === 1 ? 'lg:order-1' : ''}>
