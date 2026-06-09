@@ -101,13 +101,13 @@ export const testimonials = [
 
 export const faqs = [
   { question: 'How long does onboarding take?', answer: 'Most clients are fully onboarded within 2-3 weeks. We start with a discovery call to understand your business, then map your accounts, set up integrations, and organize any historical data. You\'ll start seeing your first reports within the first month.' },
-  { question: 'Which tools do you integrate with?', answer: 'We integrate with most major accounting and business tools including QuickBooks, Xero, Stripe, PayPal, Square, Gusto, Wise, and most bank feeds. If you use something specific, we\'ll find a way to make it work.' },
-  { question: 'Can you support fundraising or board reporting?', answer: 'Absolutely. Our Growth and Scale plans include board-ready reporting packages. We\'ve helped multiple clients prepare for fund-raises by cleaning up books, creating investor dashboards, and providing financial projections.' },
+  { question: 'Which tools do you work with?', answer: 'We work with most major accounting and business tools including QuickBooks, Xero, and Sage50 we prioritize working with Quickbooks Online.' },
+  // { question: 'Can you support fundraising or board reporting?', answer: 'Absolutely. Our Growth and Scale plans include board-ready reporting packages. We\'ve helped multiple clients prepare for fund-raises by cleaning up books, creating investor dashboards, and providing financial projections.' },
   { question: 'What if my books are behind?', answer: 'No problem at all. We specialize in catching up books that are months (or even years) behind. We\'ll assess the scope during our initial consultation and create a catch-up plan that works for your timeline and budget.' },
   { question: 'How do I communicate with the team?', answer: 'We offer multiple communication channels including email, scheduled video calls, and Slack for Growth and Scale clients. You\'ll always have a direct line to your dedicated bookkeeper and account manager.' },
 ]
 
-export const industries = ['Startups', 'Agencies', 'Contractors', 'E-commerce', 'Creators', 'Consultants', 'Restaurants', 'Service businesses']
+export const industries = ['Startups', 'Agencies', 'Freelancers', 'Solopreneurs', 'Contractors', 'E-commerce', 'Creators', 'Consultants', 'Restaurants', 'Service businesses']
 
 export const blogPosts = [
   {
