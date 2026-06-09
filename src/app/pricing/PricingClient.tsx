@@ -231,13 +231,13 @@ export default function PricingClient({
             </AnimatedSection>
 
             <AnimatedSection animation="scale" delay={0.2}>
-              <div className="rounded-3xl overflow-hidden">
+              <div className="relative w-[70vw] h-[70vw] lg:w-[70vh] lg:h-[70vh] mx-auto rounded-full overflow-hidden">
                 <Image
                   src="/images/pricing-hero.jpg"
                   alt="Pricing"
                   className="w-full h-80 lg:h-96 object-cover"
-                  width={800}
-                  height={600}
+                  width={600}
+                  height={400}
                 />
               </div>
             </AnimatedSection>
