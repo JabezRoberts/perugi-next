@@ -1479,7 +1479,7 @@ export default function GetStarted() {
       <section className="w-full py-16 lg:py-24 bg-background">
         <div className="w-full px-6 lg:px-12 max-w-6xl mx-auto">
           <AnimatedSection className="max-w-3xl mx-auto">
-            <div className="p-6 lg:p-10 rounded-3xl bg-card border border-border">
+            <div className="p-6 lg:p-6 rounded-3xl bg-card border border-border">
               {submitted ? (
                 <div className="flex flex-col items-center justify-center py-20 text-center">
                   <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center mb-6">
