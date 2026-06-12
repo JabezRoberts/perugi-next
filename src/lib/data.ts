@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Perugi Partners',
   tagline: 'Financial Clarity for Modern Businesses',
-  email: 'info@perugipartners.com',
+  email: 'perugipartners@gmail.com',
   phone: '+1 (876) 501-4318',
   instagram: '@perugipartners',
   linkedin: 'Perugi Partners',

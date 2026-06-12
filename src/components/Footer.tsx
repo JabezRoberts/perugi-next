@@ -217,37 +217,37 @@ export default function Footer() {
           <Mail className="w-4 h-4" />
         </a>
 
-        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.youtube.com/@zeilhansystems" target="_blank" rel="noopener noreferrer"
           aria-label="YouTube"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaYoutube className="w-4 h-4" />
         </a>
 
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.linkedin.com/company/perugi-partners" target="_blank" rel="noopener noreferrer"
           aria-label="LinkedIn"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaLinkedin className="w-4 h-4" />
         </a>
 
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.instagram.com/perugipartners" target="_blank" rel="noopener noreferrer"
           aria-label="Instagram"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaInstagram className="w-4 h-4" />
         </a>
 
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.facebook.com/perugipartners" target="_blank" rel="noopener noreferrer"
           aria-label="Meta"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaFacebook className="w-4 h-4" />
         </a>
 
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://www.tiktok.com/@zeilhansystems" target="_blank" rel="noopener noreferrer"
           aria-label="TikTok"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaTiktok className="w-4 h-4" />
         </a>
 
-        <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+        <a href="https://x.com/ZeilhanSystems" target="_blank" rel="noopener noreferrer"
           aria-label="X"
           className="p-2.5 rounded-full bg-card border border-border hover:text-emerald-500 transition-all">
           <FaXTwitter className="w-4 h-4" />
