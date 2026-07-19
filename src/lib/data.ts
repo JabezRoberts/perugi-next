@@ -91,12 +91,12 @@ export const pricingPlans = [
 ]
 
 export const testimonials = [
-  { quote: 'They turned our monthly chaos into a 10-minute dashboard review. I finally understand my numbers.', name: 'Sarah Chen', role: 'Founder, Luxe Studio' },
-  { quote: 'Finally, a team that speaks founder, not accountant. Perugi makes finance approachable.', name: 'Marcus Johnson', role: 'CEO, TechStart JA' },
-  { quote: 'Clean reporting, fast responses, zero drama. Exactly what we needed as we scaled.', name: 'Aisha Patel', role: 'COO, GreenLeaf Co.' },
-  { quote: 'Our fundraising prep was 10x easier with Perugi\'s books and reporting. Investors were impressed.', name: 'David Williams', role: 'Founder, CaribConnect' },
-  { quote: 'We actually understand our margins now. That clarity changed how we run the business.', name: 'Rachel Thompson', role: 'Owner, Island Eats' },
-  { quote: 'Onboarding was smooth and they kept us on track from day one. Highly recommend.', name: 'James Mitchell', role: 'Director, BuildRight JA' },
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company' },
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company'},
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company' },
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company' },
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company'},
+  { quote: 'Testimonial TBA .', name: 'Test Name', role: 'Founder, Company'},
 ]
 
 export const faqs = [
