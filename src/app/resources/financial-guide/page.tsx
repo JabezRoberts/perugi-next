@@ -93,7 +93,7 @@
 //                   Enter your email below and we&apos;ll send the PDF straight to your inbox.
 //                 </p>
 
-//                 {/* MAILERLITE FORM */}
+//                 
 
 //                 <div
 //                   id="mlb2-embed"
@@ -232,7 +232,9 @@ export default function FinancialGuidePage() {
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8">
-                Learn the 17 most important financial numbers every entrepreneur
+                <span className="text-emerald-500 font-semibold">
+                  Learn the 17 most important financial numbers
+                </span>{" "}every entrepreneur
                 should track every day, week, month, and quarter—and understand
                 exactly why they matter.
               </p>
@@ -278,7 +280,7 @@ export default function FinancialGuidePage() {
 
                 <p className="text-muted-foreground mb-6">
                   Enter your email below and we&apos;ll send the PDF straight
-                  to your inbox.
+                  to your inbox. Check your spam folder if you don&apos;t see it within a few minutes.
                 </p>
 
                 {/* KIT FORM */}
@@ -315,7 +317,7 @@ export default function FinancialGuidePage() {
                 understood my financial position when tax season arrived.
 
                 That experience taught me that successful businesses don&apos;t wait
-                months to understand their numbers—they track the right metrics
+                months to understand their numbers; they track the right metrics
                 consistently.
               </p>
             </div>

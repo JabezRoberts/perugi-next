@@ -10,7 +10,7 @@ export const metadata = {
 
 const resources = [
   {
-    title: "The 10 Most Important Numbers Every Entrepreneur Should Track",
+    title: "The 17 Most Important Numbers Every Entrepreneur Should Track",
     description:
       "Learn the key financial numbers to monitor daily, weekly, monthly, and quarterly so you can improve profitability, cash flow, and decision-making.",
     category: "Financial Guide",
@@ -119,7 +119,7 @@ export default function ResourcesPage() {
       <section className="pb-24 lg:pb-32">
         <div className="max-w-5xl mx-auto px-6 lg:px-12">
           <AnimatedSection>
-            <div className="rounded-3xl bg-emerald-500 text-white p-10 lg:p-14 text-center">
+            <div className="rounded-3xl bg-emerald-800 text-white p-10 lg:p-14 text-center">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
                 Need More Than a Guide?
               </h2>

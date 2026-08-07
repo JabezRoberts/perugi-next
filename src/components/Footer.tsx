@@ -160,7 +160,7 @@ export default function Footer() {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Click <span className="text-emerald-500 font-medium">Get Started</span> to book a free consultation with our team or download our free guide to{" "}
             <span className="text-emerald-500 font-medium">
-              10 Numbers Every Business Owner Must Track Weekly
+              17 Numbers Every Business Owner Must Track Weekly
             </span>
           </p>
 
