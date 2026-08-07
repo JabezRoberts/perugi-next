@@ -173,7 +173,7 @@ export default function Footer() {
             </Link>
 
             <Link
-              href="/lead-magnet"
+              href="/resources/financial-guide"
               className="inline-flex items-center px-8 py-4 border border-border text-foreground font-semibold rounded-full hover:border-emerald-500 hover:text-emerald-500 transition-all"
             >
               Get Free Guide

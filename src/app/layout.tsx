@@ -6,9 +6,54 @@ import Footer from '@/components/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Perugi Partners | Financial Clarity for Modern Businesses',
-  description: 'Bookkeeping, financial reporting, and operational financial support for entrepreneurs and modern businesses.',
-}
+  title:
+    "Perugi Partners | Bookkeeping, Financial Reporting & Business Finance",
+
+  description:
+    "Helping entrepreneurs gain financial clarity through bookkeeping, reporting, cash flow insights, and practical business finance. Helping entrepreneurs understand their numbers and make financially-sound business decisions.",
+
+  keywords: [
+    "bookkeeping",
+    "small business bookkeeping",
+    "financial reporting",
+    "cash flow",
+    "business finance",
+    "bookkeeping services",
+    "financial statements",
+    "entrepreneur finance",
+    "startup bookkeeping",
+    "business budgeting",
+    "accounting",
+    "financial management",
+    "small business accounting",
+    "profit and loss",
+    "balance sheet"
+  ],
+
+  openGraph: {
+    title:
+      "Perugi Partners | Bookkeeping, Financial Reporting & Business Finance",
+
+    description:
+      "Financial clarity for entrepreneurs through bookkeeping, reporting, cash flow insights, and practical business finance.",
+
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Perugi Partners | Financial Clarity for Modern Businesses",
+
+    description:
+      "Helping entrepreneurs understand their numbers and make financially-sound business decisions.",
+  },
+
+  icons: {
+    icon: "./icon.png",
+    apple: "./icon.png",
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
