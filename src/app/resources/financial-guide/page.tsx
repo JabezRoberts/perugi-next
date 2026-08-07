@@ -274,14 +274,14 @@ export default function FinancialGuidePage() {
                   />
                 </div> */}
 
-                <h2 className="text-2xl font-bold mb-3">
+                {/* <h2 className="text-2xl font-bold mb-3">
                   Download the Guide
                 </h2>
 
                 <p className="text-muted-foreground mb-6">
                   Enter your email below and we&apos;ll send the PDF straight
                   to your inbox. Check your spam folder if you don&apos;t see it within a few minutes.
-                </p>
+                </p> */}
 
                 {/* KIT FORM */}
 
