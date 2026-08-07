@@ -203,7 +203,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata = {
   title:
-    "Free Financial Guide | The 10 Most Important Numbers Every Entrepreneur Should Track",
+    "Free Financial Guide | The 17 Most Important Numbers Every Entrepreneur Should Track",
   description:
     "Download our free guide covering the financial numbers every business owner should monitor to improve profitability, cash flow, and decision-making.",
 };
@@ -232,7 +232,7 @@ export default function FinancialGuidePage() {
               </h1>
 
               <p className="text-lg text-muted-foreground mb-8">
-                Learn the 10 most important financial numbers every entrepreneur
+                Learn the 17 most important financial numbers every entrepreneur
                 should track every day, week, month, and quarter—and understand
                 exactly why they matter.
               </p>
@@ -291,7 +291,7 @@ export default function FinancialGuidePage() {
                 </div>
 
                 <p className="text-xs text-muted-foreground">
-                  No spam. Unsubscribe anytime.
+                  We hate spam as much as you do. Unsubscribe anytime.
                 </p>
               </div>
             </AnimatedSection>
