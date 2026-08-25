@@ -235,7 +235,7 @@ export default function FinancialGuidePage() {
                 <span className="text-emerald-500 font-semibold">
                   Learn the 17 most important financial numbers
                 </span>{" "}every entrepreneur
-                should track every day, week, month, and quarter—and understand
+                should track every day, week, month, and quarter, and understand
                 exactly why they matter.
               </p>
 
